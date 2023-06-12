@@ -1,0 +1,2 @@
+class BankReferencesController < ApplicationController
+end

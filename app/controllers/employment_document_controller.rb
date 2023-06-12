@@ -1,2 +1,0 @@
-class EmploymentDocumentController < ApplicationController
-end
