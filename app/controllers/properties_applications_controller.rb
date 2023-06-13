@@ -1,6 +1,6 @@
 class PropertiesApplicationsController < ApplicationController
   def index
-    @properties_application = PropertiesApplication.all
+    @properties_application = PropertyApplication.all
   end
 
   #   def destroy
