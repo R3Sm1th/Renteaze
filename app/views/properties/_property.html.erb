@@ -13,6 +13,6 @@
   <div class="card-body">
     <%= link_to "Current Applications", property_property_applications_path(property), class:"card-link" %>
     <%= link_to "Amend Property", edit_property_path(property), class:"card-link" %>
-    <%= link_to "Remove Property", properties_path, class:"card-link" %>
+    <%= link_to "Delete Property", property_path(property), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
   </div>
 </div>

@@ -1,10 +1,14 @@
-<h1> Properties within portfolio </h1>
-<%# main container %>
 <div>
+  <h1>Welcome Back <%= current_user.first_name %></h1>
+</div>
+<div>
+  <h1> Property Listings Dashboard </h1>
   <div>
-  <% @properties.each do |property| %>
-    <%= render property %>
-  <% end %>
+    <div>
+    <% @properties.each do |property| %>
+      <%= render property %>
+    <% end %>
+    </div>
+    <%= link_to "New property", new_property_path %>
   </div>
-  <%= link_to "New property", new_property_path %>
 </div>
