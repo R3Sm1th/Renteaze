@@ -1,28 +1,18 @@
 <div id="<%= dom_id property %>">
-  <p>
-    <strong>Number:</strong>
-    <%= property.number %>
-  </p>
-
-  <p>
-    <strong>Street:</strong>
-    <%= property.street %>
-  </p>
-  <p>
-    <strong>Town:</strong>
-    <%= property.town %>
-  </p>
-  <p>
-    <strong>Postcode:</strong>
-    <%= property.postcode %>
-  </p>
-  <p>
-    <strong>Price:</strong>
-    <%= property.price_per_month %>
-  </p>
-  <p>
-    <strong>Availability Date:</strong>
-    <%= property.availability_date %>
-  </p>
-
+  <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= property.number %>, <%= property.street %></h5>
+    <p class="card-text"><%= property.town %></p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= property.price_per_month %></li>
+    <li class="list-group-item"><%= property.availability_date %></li>
+    <li class="list-group-item"><%= property.postcode %></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to "Current Applications", property_property_applications_path(property), class:"card-link" %>
+    <%= link_to "Amend Property", edit_property_path(property), class:"card-link" %>
+    <%= link_to "Remove Property", properties_path, class:"card-link" %>
+  </div>
 </div>
