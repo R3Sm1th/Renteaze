@@ -16,8 +16,10 @@ class PropertyApplicationsController < ApplicationController
     when 'bank_reference'
       @bank_reference = @property_application.bank_reference || BankReference.new
     # Also need for employment_reference
-    else
-      @identification = @property_application.identification || Identification.new
+    when 'employment_document'
+      @employment_document = @property_application.employment_document || EmploymentDocument.new
+    # else
+    # @identification = @property_application.identification || Identification.new
     end
   end
 
