@@ -1,4 +1,4 @@
-class PropertiesApplicationsController < ApplicationController
+class PropertyApplicationsController < ApplicationController
   def index
     @properties_application = PropertyApplication.all
   end
