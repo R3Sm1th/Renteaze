@@ -4,11 +4,13 @@
 <div>
   <h1> Property Listings Dashboard </h1>
   <div>
-    <div>
+    <%= link_to "New property", new_property_path %>
+  </div>
+  <div>
+    <div class="card-group">
     <% @properties.each do |property| %>
       <%= render property %>
     <% end %>
     </div>
-    <%= link_to "New property", new_property_path %>
   </div>
 </div>
