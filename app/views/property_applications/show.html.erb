@@ -1,0 +1,24 @@
+<h1>Info about application #<%= @property_application.id %></h1>
+
+<% if params[:step].nil? || params[:step] == 'identification' %>
+  <p>Identification form goes here</p>
+  <% if @identification.persisted? %>
+    <p>This step has been completed</p>
+  <% else %>
+    <p>This step has NOT been completed</p>
+  <% end %>
+<% elsif params[:step] == 'bank_reference' %>
+  <p>BankReference form goes here</p>
+  <% if @bank_reference.persisted? %>
+    <p>This step has been completed</p>
+  <% else %>
+    <p>This step has NOT been completed</p>
+  <% end %>
+<% elsif params[:step] == 'employment_document' %>
+  <p>BankReference form goes here</p>
+  <% if @employment_document.persisted? %>
+    <p>This step has been completed</p>
+  <% else %>
+    <p>This step has NOT been completed</p>
+  <% end %>
+<% end %>
