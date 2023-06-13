@@ -2,8 +2,9 @@
   <div>
   <% @property_applications.each do |application| %>
     <%= application %>
-    <% link_to "Show this property application", application %>
+    <%= link_to "Show this property application", application %>
     <%= link_to "Edit property application", property_application_path(application) %>
+    <%= link_to "Delete property application", property_application_path(application) %>
   <% end %>
   </div>
   <%= link_to "New property application",  new_property_property_application_path(@property) %>
