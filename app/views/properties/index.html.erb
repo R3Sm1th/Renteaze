@@ -4,7 +4,6 @@
   <div>
   <% @properties.each do |property| %>
     <%= render property %>
-    <%= link_to "Show this property", property %>
   <% end %>
   </div>
   <%= link_to "New property", new_property_path %>
