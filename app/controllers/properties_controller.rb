@@ -1,9 +1,9 @@
 class PropertiesController < ApplicationController
-  before_action :set_property, only: %i[ show edit update destroy pdf]
+  before_action :set_property, only: %i[ show edit update destroy]
 
   # GET /properties
   def index
-    @properties = Property.all
+    @properties = Property.where(user: current_user)
   end
 
   # GET /properties/1
@@ -34,7 +34,7 @@ class PropertiesController < ApplicationController
   # PATCH/PUT /properties/1
   def update
     if @property.update(property_params)
-      redirect_to @property, notice: "Property was successfully updated."
+      redirect_to properties_path, notice: "Property was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class PropertiesController < ApplicationController
   # DELETE /properties/1
   def destroy
     @property.destroy
-    redirect_to root_path, notice: "Post was successfully destroyed.", status: :see_other
+    redirect_to properties_path, notice: "Property was successfully destroyed.", status: :see_other
   end
 
   private
@@ -55,6 +55,6 @@ class PropertiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def property_params
-    params.require(:property).permit(:number, :street, :town, :postcode, :price_per_month, :availability_date)
+    params.require(:property).permit(:number, :street, :town, :postcode, :price_per_month, :availability_date, :photo)
   end
 end

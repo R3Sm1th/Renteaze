@@ -1,18 +1,19 @@
-<div id="<%= dom_id property %>">
+<div id="<%= dom_id property %>" class="col">
   <div class="card" style="width: 18rem;">
-  <%= cl_image_tag property.photo.key, class: "card-img-top" %>
-  <div class="card-body">
-    <h5 class="card-title"><%= property.number %>, <%= property.street %></h5>
-    <p class="card-text"><%= property.town %></p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= property.price_per_month %></li>
-    <li class="list-group-item"><%= property.availability_date %></li>
-    <li class="list-group-item"><%= property.postcode %></li>
-  </ul>
-  <div class="card-body">
-    <%= link_to "Current Applications", property_property_applications_path(property), class:"card-link" %>
-    <%= link_to "Amend Property", edit_property_path(property), class:"card-link" %>
-    <%= link_to "Remove Property", properties_path, class:"card-link" %>
+    <%= cl_image_tag property.photo.key, width:300, class:"card-img-top"%>
+    <div class="card-body">
+      <h5 class="card-title"><%= property.number %>, <%= property.street %></h5>
+      <p class="card-text"><%= property.town %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= property.price_per_month %></li>
+      <li class="list-group-item"><%= property.availability_date %></li>
+      <li class="list-group-item"><%= property.postcode %></li>
+    </ul>
+    <div class="card-body">
+      <%= link_to "Current Applications", property_property_applications_path(property), class:"card-link" %>
+      <%= link_to "Amend Property", edit_property_path(property), class:"card-link" %>
+      <%= link_to "Delete Property", property_path(property), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+    </div>
   </div>
 </div>
