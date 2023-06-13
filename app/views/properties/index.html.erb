@@ -1,0 +1,11 @@
+<h1> Properties within portfolio </h1>
+<%# main container %>
+<div>
+  <div>
+  <% @properties.each do |property| %>
+    <%= render property %>
+    <%= link_to "Show this property", property %>
+  <% end %>
+  </div>
+  <%= link_to "New property", new_property_path %>
+</div>
