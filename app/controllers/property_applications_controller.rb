@@ -2,7 +2,7 @@ class PropertyApplicationsController < ApplicationController
   def index
     @property_applications = PropertyApplication.all
     @property = Property.find(params[:property_id])
-    # @filtered_applications = @property_applications.where(property: @property)
+    #@ filtered_applications = @property_applications.where(property: @property)
   end
 
   # GET /property_applications/:id?step=identification
@@ -16,10 +16,8 @@ class PropertyApplicationsController < ApplicationController
     when 'bank_reference'
       @bank_reference = @property_application.bank_reference || BankReference.new
     # Also need for employment_reference
-    when 'employment_document'
-      @employment_document = @property_application.employment_document || EmploymentDocument.new
-    # else
-    # @identification = @property_application.identification || Identification.new
+    else
+      @identification = @property_application.identification || Identification.new
     end
   end
 
