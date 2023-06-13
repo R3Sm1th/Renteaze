@@ -1,11 +1,10 @@
 <h1> Property Applications </h1>
-<%# main container %>
-<%# <div>
   <div>
-  <% @properties_applications.each do |property_application| %>
-    <%# <%= property_application %>
-    <%# <%= link_to "Show this property application", property_application %>
-  <%# <% end %>
-  <%# </div>
-  <%= link_to "New property application", new_property_application_path %>
-<%# </div> %>
+  <% @property_applications.each do |application| %>
+    <%= application %>
+    <% link_to "Show this property application", application %>
+    <%= link_to "Edit property application", property_application_path(application) %>
+  <% end %>
+  </div>
+  <%= link_to "New property application",  new_property_property_application_path(@property) %>
+ </div>

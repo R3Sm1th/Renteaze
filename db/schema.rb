@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_100708) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_141358) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,13 +93,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100708) do
     t.string "status"
     t.bigint "property_id", null: false
     t.bigint "user_id", null: false
-    t.bigint "identification_id", null: false
-    t.bigint "bank_references_id", null: false
-    t.bigint "employment_documents_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bank_references_id"], name: "index_property_applications_on_bank_references_id"
-    t.index ["employment_documents_id"], name: "index_property_applications_on_employment_documents_id"
+    t.bigint "identification_id"
+    t.bigint "employment_document_id"
+    t.bigint "bank_reference_id"
+    t.index ["bank_reference_id"], name: "index_property_applications_on_bank_reference_id"
+    t.index ["employment_document_id"], name: "index_property_applications_on_employment_document_id"
     t.index ["identification_id"], name: "index_property_applications_on_identification_id"
     t.index ["property_id"], name: "index_property_applications_on_property_id"
     t.index ["user_id"], name: "index_property_applications_on_user_id"
@@ -128,8 +128,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_100708) do
   add_foreign_key "messages", "property_applications"
   add_foreign_key "messages", "users"
   add_foreign_key "properties", "users"
-  add_foreign_key "property_applications", "bank_references", column: "bank_references_id"
-  add_foreign_key "property_applications", "employment_documents", column: "employment_documents_id"
+  add_foreign_key "property_applications", "bank_references"
+  add_foreign_key "property_applications", "employment_documents"
   add_foreign_key "property_applications", "identifications"
   add_foreign_key "property_applications", "properties"
   add_foreign_key "property_applications", "users"
