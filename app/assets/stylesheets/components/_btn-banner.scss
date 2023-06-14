@@ -1,3 +1,6 @@
+// CSS for those two banner buttons.
+// 7px 7px 140px #57CC99; <<- Ignore, is for my reference.
+
 .btn-banner {
   margin-top: 10px;
 
@@ -14,6 +17,7 @@
   font-size: 18px;
   font-weight: 500;
   transition: background-color .2s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btn-wrap {
@@ -21,8 +25,6 @@
   width: 40%;
   background-color: rgb(245, 255, 245);
 }
-
-// 7px 7px 140px #57CC99;
 
 .btn-banner:hover {
   background-color: rgb(245, 255, 245);
