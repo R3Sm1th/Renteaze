@@ -21,9 +21,10 @@
     </ul>
 
     <div>
-</div>
   </div>
-    
+ </div>
+
+    <%= link_to "attach employment documents", new_property_application_employment_document_path(@property_application.id) %>
     <%= link_to "Upload Bank References",   new_property_application_bank_reference_path(params[:id]) %>
     <%= link_to "New Identification",  new_property_application_identification_path(params[:id]) %>
     
