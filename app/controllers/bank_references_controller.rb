@@ -12,7 +12,7 @@ class BankReferencesController < ApplicationController
   private
 
   def bank_references_params
-    params.require(:bank_references).permit (:name, :surname, :issue_date, :expiration_date, :pdf)
+    params.require(:bank_references).permit(:name, :surname, :issue_date, :expiration_date, :pdf)
   end
 
 end
