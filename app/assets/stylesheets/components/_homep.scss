@@ -1,0 +1,24 @@
+// These fonts are being used for the entire homepage.
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+// This is the white background color for the webpage.
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+//The text which is next to the cards on the homepage. EX: Found the property?
+.homeh1 {
+  font-weight: bold;
+}
+
+//The word in the text next to the card being highlighted;
+.highlight {
+  color: #57CC99;
+}

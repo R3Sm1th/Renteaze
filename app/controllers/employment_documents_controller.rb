@@ -1,5 +1,5 @@
 class EmploymentDocumentsController < ApplicationController
-  before_action :set_property_application, only: %i[new create]
+  before_action :set_property_application, only: %i[new create edit]
 
   def new
     @employment_document = EmploymentDocument.new
@@ -12,9 +12,27 @@ class EmploymentDocumentsController < ApplicationController
     @employment_document.property_application_id = @property_application.id
 
     if @employment_document.save!
-      redirect_to property_application_path(@property_application.id)
+      redirect_to  property_application_path(@property_application.id)
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def show
+    @employment_document = EmploymentDocument.find(params[:id])
+  end
+
+  def edit
+    @employment_document = EmploymentDocument.find(params[:id])
+  end
+
+
+  def update
+    @employment_document = employment_document.find(params[:id])
+    if @employment_document.update(employment_document_params)
+      redirect_to property_application_employment_document
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

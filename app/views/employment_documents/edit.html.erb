@@ -1,0 +1,7 @@
+<h1>Edit Employment Document</h1>
+<%= simple_form_for [@property_application, @employment_document] do |f| %>
+  <%= f.input :company_name %>
+  <%= f.input :date %>
+  <%= f.input :status %>
+  <%= f.submit class: "btn bookings-button"%>
+<% end %>

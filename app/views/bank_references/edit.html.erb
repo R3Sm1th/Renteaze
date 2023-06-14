@@ -1,20 +1,14 @@
 <h1>Edit Bank References</h1>
 
+<%= render "form", identifications: @bank_reference %>
+
 <br>
+
+<div>
+  <%= link_to "Back to Application", properties_path %>
+</div>
+
 
 <div>
   <%= link_to "Back to Applications", property_application_path(params[:property_application_id])%>
 </div>
-<%= simple_form_for(@property) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :number %>
-    <%= f.input :street %>
-    <%= f.input :town %>
-    <%= f.input :postcode %>
-    <%= f.input :price_per_month %>
-    <%= f.input :availability_date %>
-    <%= f.input :photo, as: :file %>
-  </div>
