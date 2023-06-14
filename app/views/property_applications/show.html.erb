@@ -20,6 +20,8 @@
       <li class="list-group-item">12 month(s) only</li>
     </ul>
   </div>
+
+    <%= link_to "attach employment documents", new_property_application_employment_document_path(@property_application.id) %>
   <div>
     <%# use this section for main body %>
     <% if params[:step].nil? || params[:step] == 'identification' %>
