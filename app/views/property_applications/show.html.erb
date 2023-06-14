@@ -29,30 +29,17 @@
     <%= link_to "New Identification",  new_property_application_identification_path(params[:id]) %>
     <%= link_to "List of Identifications",  property_application_identifications_path(params[:id]) %>
 
-    <%# Turbo Frame Testing %>
+    <main class="container">
+      <%= turbo_frame_tag "first_turbo_frame" do %>
+        <div class="header">
+          <h1>Identifications</h1>
+          <%= link_to "New ID", new_property_application_identification_path(params[:id]), class: "btn btn--primary" %>
+        </div>
+      <% end %>
 
-    <%# use this section for main body %>
-    <%# <% if params[:step].nil? || params[:step] == 'identification' %>
-      <%# <p>Identification form goes here</p> %>
-      <%# <% if @identification.persisted? %>
-        <%# <p>This step has been completed</p> %>
-      <%# <% else %>
-        <%# <p>This step has NOT been completed</p> %>
-      <%# <% end %>
-    <%# <% elsif params[:step] == 'bank_reference' %>
-      <%# <p>BankReference form goes here</p>
-      <% if @bank_reference.persisted? %>
-        <%# <p>This step has been completed</p>
-      <% else %>
-        <%# <p>This step has NOT been completed</p> %>
-      <%# <% end %>
-    <%# <% elsif params[:step] == 'employment_document' %>
-      <%# <p>BankReference form goes here</p> %>
-      <%# <% if @employment_document.persisted? %>
-        <%# <p>This step has been completed</p> %>
-      <%# <% else %>
-        <%# <p>This step has NOT been completed</p> %>
-      <%# <% end %>
-    <%# <% end %>
+      <%= render partial: 'identifications/id', locals: { items: @id } %>
+
+    </main>
+
   </div>
 </div>

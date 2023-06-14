@@ -1,9 +1,16 @@
-<h1>New Identification Form</h1>
+<%# <h1>New Identification Form</h1>
 
 <%= render "form", identifications: @identification %>
 
-<br>
+<%# <div> %>
+  <%# <%= link_to "Back to Application", property_application_path(params[:property_application_id]) %> %>
+<%# </div> %>
 
-<div>
-  <%= link_to "Back to Application", property_application_path(params[:property_application_id]) %>
-</div>
+<main class="container">
+  <%= link_to sanitize("&larr; Back to Dashboard"), property_application_path(params[:property_application_id]) %>
+
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+  <h1>New Identification</h1>
+    <%= render "form", identifications: @identification %>
+  <% end %>
+</main>
