@@ -1,3 +1,5 @@
+// CSS config file for the homepage banner.
+
 .banner {
   height: 50vh;
   display: flex;
@@ -10,6 +12,11 @@
 .banner h1 {
   font-weight: bold;
   font-size: 3.5rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.banner p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .banner-content {
