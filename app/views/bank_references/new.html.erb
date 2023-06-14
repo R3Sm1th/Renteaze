@@ -1,5 +1,21 @@
 <h1> Bank References</h1>
 
+<%= simple_form_for [@application, @bank_reference] do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%# f.input :surname %>
+    <%# f.input :issue_date %>
+    <%# f.input :expiration_date %>
+    <% f.input :pdf, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
 <br>
 
 <div>
