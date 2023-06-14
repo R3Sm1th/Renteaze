@@ -19,30 +19,33 @@
       <li class="list-group-item"><%= @property.postcode %></li>
       <li class="list-group-item">12 month(s) only</li>
     </ul>
+
+    <div>
+</div>
   </div>
-  <div>
+  <%# <div> %>
     <%# use this section for main body %>
-    <% if params[:step].nil? || params[:step] == 'identification' %>
-      <p>Identification form goes here</p>
-      <% if @identification.persisted? %>
-        <p>This step has been completed</p>
-      <% else %>
-        <p>This step has NOT been completed</p>
-      <% end %>
-    <% elsif params[:step] == 'bank_reference' %>
-      <p>BankReference form goes here</p>
+    <%# <% if params[:step].nil? || params[:step] == 'identification' %>
+      <%# <p>Identification form goes here</p> %>
+      <%# <% if @identification.persisted? %>
+        <%# <p>This step has been completed</p> %>
+      <%# <% else %>
+        <%# <p>This step has NOT been completed</p> %>
+      <%# <% end %>
+    <%# <% elsif params[:step] == 'bank_reference' %>
+      <%# <p>BankReference form goes here</p>
       <% if @bank_reference.persisted? %>
-        <p>This step has been completed</p>
+        <%# <p>This step has been completed</p>
       <% else %>
-        <p>This step has NOT been completed</p>
-      <% end %>
-    <% elsif params[:step] == 'employment_document' %>
-      <p>BankReference form goes here</p>
-      <% if @employment_document.persisted? %>
-        <p>This step has been completed</p>
-      <% else %>
-        <p>This step has NOT been completed</p>
-      <% end %>
-    <% end %>
-  </div>
+        <%# <p>This step has NOT been completed</p> %>
+      <%# <% end %>
+    <%# <% elsif params[:step] == 'employment_document' %>
+      <%# <p>BankReference form goes here</p> %>
+      <%# <% if @employment_document.persisted? %>
+        <%# <p>This step has been completed</p> %>
+      <%# <% else %>
+        <%# <p>This step has NOT been completed</p> %>
+      <%# <% end %>
+    <%# <% end %>
+  <%# </div> %>
 </div>
