@@ -1,0 +1,17 @@
+.banner {
+  height: 50vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.banner h1 {
+  font-weight: bold;
+  font-size: 3.5rem;
+}
+
+.banner-content {
+  margin-top: 20px;
+}
