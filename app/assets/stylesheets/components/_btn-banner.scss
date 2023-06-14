@@ -1,0 +1,33 @@
+.btn-banner {
+  margin-top: 10px;
+
+  color: #fff;
+  text-align: center;
+  background-color: #216fed;
+  background-image: linear-gradient(98deg, #22577A, #38A3A5 49%, #80ED99);
+  border-style: none;
+  border-radius: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 42px;
+  font-size: 18px;
+  font-weight: 500;
+  transition: background-color .2s;
+}
+
+.btn-wrap {
+  box-shadow: 0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 0px 200px #57CC99;
+  width: 40%;
+  background-color: rgb(245, 255, 245);
+}
+
+// 7px 7px 140px #57CC99;
+
+.btn-banner:hover {
+  background-color: rgb(245, 255, 245);
+  background-image: none;
+  border-radius: 32px;
+  color: black;
+  border: 1px solid black;
+}

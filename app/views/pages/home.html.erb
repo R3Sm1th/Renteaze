@@ -1,4 +1,6 @@
 <%# section 1 %>
+<% render "pages/banner" %>
+
 <div>
   <h3> A digital solution to remove the pain points of renting residential property. </h3>
   <p> Rentease is your easy to use, free, cloud-based property management software. Key features like vetting, documentation, progress monitoring and much more on your fingertips.</p>
@@ -58,11 +60,3 @@
   <p> Start for free </p>
   <p> Get your rental agreement up and running straight away </p>
 <div>
-
-<%# section 5 - Testing cloudinary%>
-<%= cl_image_tag("flat1-01_zhruim",
-      width: 400, height: 300, crop: :fill) %>
-
-<!-- for face detection -->
-<%= cl_image_tag("flat1-02_syvkzg",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
