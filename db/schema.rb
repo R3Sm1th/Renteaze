@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_06_14_135138) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -47,6 +48,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_135138) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "property_application_id", null: false
+    t.index ["property_application_id"], name: "index_bank_references_on_property_application_id"
   end
 
   create_table "employment_documents", force: :cascade do |t|
@@ -66,6 +69,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_135138) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "property_application_id", null: false
+    t.index ["property_application_id"], name: "index_identifications_on_property_application_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -97,12 +102,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_135138) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "identification_id"
-    t.bigint "employment_document_id"
-    t.bigint "bank_reference_id"
-    t.index ["bank_reference_id"], name: "index_property_applications_on_bank_reference_id"
-    t.index ["employment_document_id"], name: "index_property_applications_on_employment_document_id"
-    t.index ["identification_id"], name: "index_property_applications_on_identification_id"
     t.index ["property_id"], name: "index_property_applications_on_property_id"
     t.index ["user_id"], name: "index_property_applications_on_user_id"
   end
@@ -127,13 +126,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_135138) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "bank_references", "property_applications"
   add_foreign_key "employment_documents", "property_applications"
+  add_foreign_key "identifications", "property_applications"
   add_foreign_key "messages", "property_applications"
   add_foreign_key "messages", "users"
   add_foreign_key "properties", "users"
-  add_foreign_key "property_applications", "bank_references"
-  add_foreign_key "property_applications", "employment_documents"
-  add_foreign_key "property_applications", "identifications"
   add_foreign_key "property_applications", "properties"
   add_foreign_key "property_applications", "users"
 end

@@ -16,7 +16,7 @@
   <div class="card-footer text-muted">
     <%#= link_to "Show this property application", application %>
     <%= link_to "Review progress", property_application_path(property_application) %>
-    <%= link_to "Delete application", property_application_path(property_application) %>
+    <%= link_to "Delete application", property_application_path(property_application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
     <%= link_to "Approve application", property_application_path(property_application) %>
   </div>
 </div>
