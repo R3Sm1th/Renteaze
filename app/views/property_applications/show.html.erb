@@ -2,9 +2,9 @@
   <%# this section to stylise header %>
   <h1>Application Dashboard for #<%= @property_application.id %></h1>
 </div>
-<div style="display: flex">
+<div class="asset-dashboard">
   <%# display grid or flex to reflect figma %>
-  <div>
+  <div class="property-focus">
     <%# can this be full height 100%vh and sticky? %>
     <div class="card" style="width: 18rem;">
     <%= cl_image_tag @property.photo.key, width:300, class:"card-img-top"%>
@@ -23,15 +23,13 @@
   </div>
 
 
-  <div>
+  <div class="dashboard-content">
     <%= link_to "attach employment documents", new_property_application_employment_document_path(@property_application.id) %>
     <%= link_to "Upload Bank References",   new_property_application_bank_reference_path(params[:id]) %>
     <%= link_to "New Identification",  new_property_application_identification_path(params[:id]) %>
-
+    <%= link_to "List of Identifications",  property_application_identifications_path(params[:id]) %>
 
     <%# Turbo Frame Testing %>
-
-  <%# <div> %>
 
     <%# use this section for main body %>
     <%# <% if params[:step].nil? || params[:step] == 'identification' %>

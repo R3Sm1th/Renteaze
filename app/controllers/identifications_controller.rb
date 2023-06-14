@@ -1,5 +1,12 @@
 class IdentificationsController < ApplicationController
-  before_action :set_identification, only: %i[ new edit create update]
+  before_action :set_identification, only: %i[ index new edit create update]
+  def index
+    @all = Identification.all
+    @id = @all.where(property_application_id: @application)
+    # raise
+    # @identifications = @all.where(property_application.user.email = current
+  end
+
   def new
     @identification = Identification.new
   end
