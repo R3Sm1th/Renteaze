@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_134228) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_14_153035) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_134228) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "property_application_id", null: false
+    t.string "surname"
+    t.date "issue_date"
+    t.date "expiration_date"
     t.index ["property_application_id"], name: "index_bank_references_on_property_application_id"
   end
 
