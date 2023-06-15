@@ -1,20 +1,14 @@
-<%# <h1>New Bank Reference Form</h1>
-
-<%= render "form", identifications: @bank_reference %>
 <main class="container">
   <%= link_to sanitize("&larr; Back to Dashboard"), property_application_path(params[:property_application_id]) %>
 
-  <%= turbo_frame_tag "first_turbo_frame" do %>
-  <h1>New Bank Reference</h1>
-    <%= render "form", bank_references: @bank_reference %>
+  <%# <%= turbo_frame_tag "second_frame" do %>
+  <div class="header">
+    <h1>New Bank References</h1>
+  </div>
+
+  <%= turbo_frame_tag "new_id" do %>
+    <%= render "form", identifications: @bank_reference %>
+    <%= link_to 'Cancel', property_application_path(@application) %>
   <% end %>
+
 </main>
-
-<div>
-  <%= link_to "Back to Properties", properties_path %>
-</div>
-
-
-<div>
-  <%= link_to "Back to Applications", property_application_path(params[:property_application_id])%>
-</div>

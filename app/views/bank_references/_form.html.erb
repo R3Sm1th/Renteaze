@@ -1,4 +1,5 @@
-<%= simple_form_for [@application, @bank_reference], url:{action: "create"} do |f| %>
+<% model = @bank_reference.id.present? ? @bank_reference : [@application, @bank_reference] %>
+<%= simple_form_for model do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -8,6 +9,7 @@
     <%= f.input :issue_date %>
     <%= f.input :expiration_date %>
     <%= f.input :pdf, as: :file %>
+  </div>
 
   <div class="form-actions">
     <%= f.button :submit %>

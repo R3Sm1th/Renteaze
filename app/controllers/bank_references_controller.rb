@@ -16,29 +16,56 @@ class BankReferencesController < ApplicationController
     @application = PropertyApplication.find(params[:property_application_id])
     @bank_reference = BankReference.find(params[:id])
   end
+# / CODE BEFORE REPLICA
 
-  def create
-    @application = PropertyApplication.find(params[:property_application_id])
-    @bank_reference = BankReference.new(bank_reference_params)
+  # def create
+  #   @application = PropertyApplication.find(params[:property_application_id])
+  #   @bank_reference = BankReference.new(bank_reference_params)
+  #   @bank_reference.property_application = @application
+  #   @bank_reference.status = "Complete"
+
+  #   if @bank_reference.save!
+  #     redirect_to property_application_path(@application.id), format: :html, notice: "Bank Reference page was successfully updated."
+  #     # redirect_to action: "show", parent_id: @application.id, id: @bank_reference.id
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
+
+  # / CODE AFTER REPLICA
+    def create
+    @bank_reference = BankReference.new(bank_reference_params_params)
     @bank_reference.property_application = @application
-    @bank_reference.status = "Complete"
 
-    if @bank_reference.save!
-      redirect_to property_application_path(@application.id), format: :html, notice: "Bank Reference page was successfully updated."
-      # redirect_to action: "show", parent_id: @application.id, id: @bank_reference.id
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @bank_reference.save
+        format.html { redirect_to property_application_path(@property), notice: "Bank Reference page was successfully updated." }
+        format.turbo_stream
+      else
+        render :new, status: :unprocessable_entity
+      end
     end
   end
 
   # PATCH/PUT /identification/1
-  def update
-    if @property.update(property_params)
-      redirect_to properties_path, notice: "Property was successfully updated."
-    else
-      render :edit, status: :unprocessable_entity
+  # def update
+  #   if @property.update(property_params)
+  #     redirect_to properties_path, notice: "Property was successfully updated."
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
+
+    # PATCH/PUT /identification/1
+    def update
+      @bank_reference = BankReference.find(params[:id])
+      @application = @bank_reference.property_application
+      if @bank_reference.update(bank_reference_params)
+        redirect_to property_application_path(@application), notice: "Bank Reference was successfully updated."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
-  end
 
   private
 
