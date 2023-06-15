@@ -1,6 +1,8 @@
-<h1>Employment Document Details</h1>
-<%= @employment_document.company_name %>
-<%= @employment_document.date %>
-<%= @employment_document.status %>
+<p>Review your document details: </p>
+<li><p>Company name: <%= @employment_document.company_name %></p></li>
+<li><p>Created date: <%= @employment_document.date %></p></li>
+<li>document status: <%= @employment_document.status %></p></li>
+<%= link_to "Edit document", edit_employment_document_path(@employment_document.id)%>
+<%= link_to "Delete document", employment_document_path(@employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 
-<%= link_to "edit document", edit_property_application_employment_document_path(@employment_document.id)%>
+<%= link_to "Return to property application", property_application_path(@property_application.id)%>
