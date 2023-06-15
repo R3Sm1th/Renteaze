@@ -1,0 +1,11 @@
+<h1>Index page for employment documents</h1>
+<% @employment_documents.each do |employment_document| %>
+  <div>
+    <ul>
+      <li>Company name: <strong><%= employment_document.company_name %></strong></li>
+      <p>Created date: </p> <strong><%= employment_document.date %></strong>
+      <p>Status: </p> <strong><%= employment_document.status %>
+      <%= link_to "Delete document", employment_document_path(employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </ul></strong>
+  </div>
+<% end %>

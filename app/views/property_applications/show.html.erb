@@ -25,6 +25,7 @@
 
   <div class="dashboard-content">
     <%= link_to "attach employment documents", new_property_application_employment_document_path(@property_application.id) %>
+    <%= link_to "list employment documents", property_application_employment_documents_path(@property_application.id) %>
     <%= link_to "Upload Bank References",   new_property_application_bank_reference_path(params[:id]) %>
     <%= link_to "New Identification",  new_property_application_identification_path(params[:id]) %>
     <%= link_to "List of Identifications",  property_application_identifications_path(params[:id]) %>
