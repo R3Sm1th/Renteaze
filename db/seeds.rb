@@ -96,14 +96,14 @@ property6 = Property.new(property6)
 property6.photo.attach(io: file, filename: "6-01_n5gdk2.jpg", content_type: "image/jpg")
 property6.save
 
-property7 = {number: 100, street: "South Downs", town: "Bowdon", postcode: "WA143DR", price_per_month: 1750, availability_date: Date.new(2023-8-17), user: user4}
+property7 = {number: 100, street: "South Downs", town: "Bowdon", postcode: "WA143DR", price_per_month: 1750, availability_date: Date.new(2023-8-17), user: user3}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662414/7-01_qqivmj.jpg")
 property7 = Property.new(property7)
 property7.photo.attach(io: file, filename: "7-01_qqivmj.jpg", content_type: "image/jpg")
 property7.save
 
-property8 = {number: 34, street: "Carrwood", town: "Hale Barns", postcode: "WA150EW", price_per_month: 2350, availability_date: Date.new(2023,8,17), user: user4}
+property8 = {number: 34, street: "Carrwood", town: "Hale Barns", postcode: "WA150EW", price_per_month: 2350, availability_date: Date.new(2023,8,17), user: user3}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
 property8 = Property.new(property8)

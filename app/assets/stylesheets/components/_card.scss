@@ -4,3 +4,18 @@
   background-color: white;
   box-shadow: 0px 0px 3px 0px;
 }
+
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fa-location-arrow,
+.fa-pen-to-square,
+.fa-trash {
+  font-size: 25px;
+  margin-left: 5px;
+  
+}

@@ -11,9 +11,9 @@
       <li class="list-group-item"><%= property.postcode %></li>
     </ul>
     <div class="card-body">
-      <%= link_to "Current Applications", property_property_applications_path(property), class:"card-link" %>
-      <%= link_to "Amend Property", edit_property_path(property), class:"card-link" %>
-      <%= link_to "Delete Property", property_path(property), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <%= link_to "", property_property_applications_path(property), class:"fa-solid fa-location-arrow" %>
+      <%= link_to "", edit_property_path(property), class:"fa-solid fa-pen-to-square" %>
+      <%= link_to "", property_path(property), class:"fa-solid fa-trash",  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
     </div>
   </div>
 </div>
