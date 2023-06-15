@@ -16,6 +16,7 @@ class IdentificationsController < ApplicationController
 
   # POST /identification
   def create
+    raise
     @identification = Identification.new(identification_params)
     @identification.property_application = @application
 
