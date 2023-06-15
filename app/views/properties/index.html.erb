@@ -1,16 +1,27 @@
-<div>
+<div class="mt-5 d-flex justify-content-center">
   <h1>Welcome Back, <%= current_user.first_name %></h1>
 </div>
 <div>
-  <h1> Property Listings Dashboard </h1>
+  <h2 class="d-flex justify-content-center"> Property Listings Dashboard </h2>
   <div>
-    <%= link_to "New property", new_property_path %>
+    <%# <%= link_to "New property", new_property_path %>
+    <a href="<%= new_property_path %>" class="btn btn-primary">
+      New property
+    </a>
   </div>
+
   <div>
+   <a href="<%= root_path %>" class="btn btn-secondary">
+      Homepage
+    </a>
+  </div>
+
+  <div class="dashboard container d-flex justify-content-center my-5" >
     <div class="card-group">
     <% @properties.each do |property| %>
       <%= render property %>
     <% end %>
     </div>
   </div>
+
 </div>
