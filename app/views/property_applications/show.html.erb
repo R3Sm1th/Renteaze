@@ -33,12 +33,22 @@
       <%= turbo_frame_tag "first_turbo_frame" do %>
         <div class="header">
           <h1>Identifications</h1>
-          <%= link_to "New ID", new_property_application_identification_path(params[:id]), class: "btn btn--primary" %>
+          <%= link_to "New ID",
+                      new_property_application_identification_path(params[:id]),
+                      class: "btn btn--primary",
+                      data: { turbo_frame: "new_id" } %>
         </div>
       <% end %>
 
-      <%= render partial: 'identifications/id', locals: { items: @id } %>
+      <%# The new form will be inserted in the turbo frame below %>
+      <%= turbo_frame_tag "new_id" do %>
+      <% end %>
 
+      <%= turbo_frame_tag dom_id(@property_application, :ids) do %>
+        <% @id.each do |id| %>
+          <%= render partial: 'identifications/id', locals: { id: id } %>
+        <% end %>
+      <% end %>
     </main>
 
   </div>

@@ -9,8 +9,14 @@
 <main class="container">
   <%= link_to sanitize("&larr; Back to Dashboard"), property_application_path(params[:property_application_id]) %>
 
-  <%= turbo_frame_tag "first_turbo_frame" do %>
-  <h1>New Identification</h1>
+  <%# <%= turbo_frame_tag "second_frame" do %>
+  <div class="header">
+    <h1>New Identification</h1>
+  </div>
+
+  <%= turbo_frame_tag "new_id" do %>
     <%= render "form", identifications: @identification %>
+    <%= link_to 'Cancel', property_application_path(@application) %>
   <% end %>
+
 </main>
