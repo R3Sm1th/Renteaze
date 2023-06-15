@@ -1,6 +1,13 @@
+.asset-banner {
+  background-color: $lime_green;
+  text-align: center;
+  padding: 20px;
+}
+
 .asset-dashboard {
   display: flex;
   width: 80%;
+  margin: 0 auto;
   // justify-content: center;
   // align-items: center;
 }
@@ -19,4 +26,22 @@
 .dashboard-content {
   background-color: $light_blue;
   width: 66%;
+}
+
+.frame {
+  border: 1px solid black;
+  background-color: white;
+}
+
+.frame-content {
+  display: flex;
+}
+
+.text-content {
+  flex: 1;
+}
+
+.image-content {
+  margin-left: 10px;
+  padding: 5px;
 }

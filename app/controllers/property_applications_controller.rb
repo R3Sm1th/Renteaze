@@ -12,7 +12,7 @@ class PropertyApplicationsController < ApplicationController
     @tenant = @property_application.user
     # testing
     @all = Identification.all
-    @id = @all.where(property_application_id: params[:id])
+    @id = @all.where(property_application_id: params[:id]).order(created_at: :desc)
 
     case params[:step]
     when 'identification'
