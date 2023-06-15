@@ -1,4 +1,5 @@
 class PropertyApplicationsController < ApplicationController
+
   def index
     @property_applications = PropertyApplication.all
     @property = Property.find(params[:property_id])
@@ -55,7 +56,22 @@ class PropertyApplicationsController < ApplicationController
   def update
     @properties_applications = PropertyApplication.find(params[:id])
     @properties_applications.update(properties_applications_params)
-    redirect_to properties_applications_path
+    redirect_to property_application_path
+  end
+
+  def accept
+    @past = "test"
+    @property = Property.find(params[:property_id])
+    @property_application = PropertyApplication.find(params[:id])
+    @property_application.update!(status: "accepted")
+    redirect_to property_application_path
+  end
+
+  def decline
+    @property = Property.find(params[:property_id])
+    @property_application = PropertyApplication.find(params[:id])
+    @property_application.update!(status: "declined")
+    redirect_to property_application_path
   end
 
   private

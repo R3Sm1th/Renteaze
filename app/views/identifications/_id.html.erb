@@ -3,7 +3,9 @@
     <div class="text-content">
       <p><strong>ID Name:</strong> <%= id.name %></p>
       <p><strong>Issue Date:</strong> <%= id.issue_date %></p>
-      <p><strong>Expiry Date:</strong> <%= id.expiration_date %></p>
+      <p><strong>Expiration Date:</strong> <%= id.expiration_date %></p>
+
+      <%# <% if current %>
       <%= link_to "Edit", property_application_identification_path(id) %>
       <%= link_to "Delete", property_application_identification_path(id) %>
     </div>
