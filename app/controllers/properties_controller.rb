@@ -3,7 +3,13 @@ class PropertiesController < ApplicationController
 
   # GET /properties
   def index
-    @properties = Property.where(user: current_user)
+    if current_user.tenant?
+      # grab all properties they have applied to
+      @properties = Property.where(property_applications: current_user.property_applications)
+    else
+      # grab all properties they own
+      @properties = Property.where(user: current_user)
+    end
   end
 
   # GET /properties/1
