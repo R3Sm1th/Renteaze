@@ -1,6 +1,6 @@
 <div class="asset-banner">
   <%# this section to stylise header %>
-  <h1>Application Dashboard for #<%= @property_application.id %></h1>
+  <h1>Property Applcation Dashboard for #<%= @property_application.id %></h1>
 </div>
 <div class="asset-dashboard">
   <%# display grid or flex to reflect figma %>
@@ -33,7 +33,7 @@
     <main class="container">
       <%= turbo_frame_tag "first_turbo_frame" do %>
         <div class="header">
-          <h1>Identifications</h1>
+          <h3>1. Upload Personal Form of Identification</h3>
           <%= link_to "New ID",
                       new_property_application_identification_path(params[:id]),
                       class: "btn btn--primary",

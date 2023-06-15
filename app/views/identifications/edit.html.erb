@@ -1,9 +1,22 @@
 <h1>Edit Identification</h1>
 
-<%= render "form", identifications: @identification %>
+<%= turbo_frame_tag dom_id(@identification) do %>
+  <div class="mb-3 frame">
+    <div class="frame-content">
+      <div class="text-content">
+        <p><strong>ID Name:</strong> <%= @identification.name %></p>
+        <p><strong>Issue Date:</strong> <%= @identification.issue_date %></p>
+        <p><strong>Expiry Date:</strong> <%= @identification.expiration_date %></p>
+        <%= link_to "Delete", identification_path(@identification), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
-<br>
-
-<div>
-  <%= link_to "Back to Application", property_application_path(params[:property_application_id]) %>
-</div>
+          <%= render "form", identification: @identification %>
+          <%= link_to "Cancel", property_application_path(@identification.property_application) %>
+      </div>
+      <div class="image-content">
+        <%= cl_image_tag(@identification.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},
+    {:fetch_format => :jpeg}
+    ])%>
+      </div>
+    </div>
+  </div>
+<% end %>
