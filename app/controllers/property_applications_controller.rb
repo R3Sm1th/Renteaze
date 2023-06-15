@@ -1,8 +1,13 @@
 class PropertyApplicationsController < ApplicationController
 
   def index
-    @property_applications = PropertyApplication.all
-    @property = Property.find(params[:property_id])
+    if current_user.tenant?
+      # grab all properties they have applied to
+      @properties = Property.where(property_applications: current_user.property_applications)
+    else
+      # grab all properties they own
+      @properties = Property.where(user: current_user)
+    end
     # @filtered_applications = @property_applications.where(user: current_user)
   end
 
