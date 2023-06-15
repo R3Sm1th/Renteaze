@@ -1,0 +1,28 @@
+.application-banner {
+  background-color: $lime_green;
+  text-align: center;
+  padding: 20px;
+}
+
+.application-banner p, .application-banner h1 {
+  color: #22577A;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Adjust this if needed */
+}
+
+.application-index-main {
+  width: 100%; /* Adjust this if needed */
+  max-width: 600px; /* Adjust this if needed */
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center;
+}

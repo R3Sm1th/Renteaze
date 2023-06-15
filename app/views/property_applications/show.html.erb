@@ -1,6 +1,13 @@
-<div class="asset-banner">
+<div class="asset-banner my-5">
   <%# this section to stylise header %>
-  <h1>Property Applcation Dashboard for #<%= @property_application.id %></h1>
+  <% if @property.user == current_user %>
+    <h1> Application Progress </h1>
+    <p> See the latest position of <%=@property_application.user.first_name %>'s progress.</p>
+  <% else %>
+    <h1> Application References</h1>
+    <p> Let's get to know you a little better, <%=@property_application.user.first_name %>.</p>
+    <p> Please upload documentation requested for your property agent to progress your letting application.</p>
+  <% end %>
 </div>
 <div class="asset-dashboard">
   <%# display grid or flex to reflect figma %>
