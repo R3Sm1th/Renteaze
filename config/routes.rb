@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :property_applications, only: [:show, :edit, :update] do
-    resources :bank_references, only: [:new, :show, :create, :edit]
+    resources :bank_references, only: [:index, :new, :show, :create, :edit]
     resources :employment_documents, only: [:index, :new, :create ]
-    resources :identifications, only: [:new, :show, :create, :edit]
+    resources :identifications, only: [:index, :new, :show, :create, :edit, :destroy]
     resources :messages
   end
   resources :employment_documents, only:[:destroy, :show, :edit, :update]

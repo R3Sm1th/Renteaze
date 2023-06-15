@@ -10,6 +10,10 @@ class PropertyApplicationsController < ApplicationController
     @property_application = PropertyApplication.find(params[:id])
     @property = @property_application.property
     @tenant = @property_application.user
+    # testing
+    @all = Identification.all
+    @id = @all.where(property_application_id: params[:id])
+
     case params[:step]
     when 'identification'
       @identification = @property_application.identification || Identification.new

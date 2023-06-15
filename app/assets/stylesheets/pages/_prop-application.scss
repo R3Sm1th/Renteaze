@@ -1,0 +1,22 @@
+.asset-dashboard {
+  display: flex;
+  width: 80%;
+  // justify-content: center;
+  // align-items: center;
+}
+.property-focus {
+  display: flex;
+  width: 33%;
+  flex-direction: column;
+  background-color: $lime_green;
+  align-items: center;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  justify-content: space-evenly;
+}
+
+.dashboard-content {
+  background-color: $light_blue;
+  width: 66%;
+}
