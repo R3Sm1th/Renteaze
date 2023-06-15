@@ -1,5 +1,5 @@
 class IdentificationsController < ApplicationController
-  before_action :set_property_application, only: %i[ index new edit create update]
+  before_action :set_property_application, only: %i[ index new create]
   def index
     @all = Identification.all
     @id = @all.where(property_application_id: @application)
@@ -11,12 +11,13 @@ class IdentificationsController < ApplicationController
     @identification = Identification.new
   end
 
+  # GET /identifications/:id/edit
   def edit
+    @identification = Identification.find(params[:id])
   end
 
   # POST /identification
   def create
-    raise
     @identification = Identification.new(identification_params)
     @identification.property_application = @application
 
@@ -32,14 +33,17 @@ class IdentificationsController < ApplicationController
 
   # PATCH/PUT /identification/1
   def update
-    if @property.update(property_params)
-      redirect_to properties_path, notice: "Property was successfully updated."
+    @identification = Identification.find(params[:id])
+    @application = @identification.property_application
+    if @identification.update(identification_params)
+      redirect_to property_application_path(@application), notice: "Identification was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
 private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_property_application
     @application = PropertyApplication.find(params[:property_application_id])
