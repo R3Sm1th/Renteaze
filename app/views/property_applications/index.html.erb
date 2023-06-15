@@ -1,19 +1,23 @@
 <div>
-  <h1> Applications at <%= @property.number%>, <%= @property.street%>, <%= @property.town %> </h1>
-</div>
-<div>
-  <h1> Current Applications </h1>
-  <div>
-    <%= link_to "Create New Application",  new_property_property_application_path(@property) %>
+  <div class="application-banner my-5">
+    <h1> <%= @property.number%>, <%= @property.street%>, <%= @property.town %> </h1>
+    <p> List of active property applications for this property.</p>
   </div>
-  <div>
-    <div class="card-group">
-    <% @property_applications.each do |property_applications| %>
-      <%= render property_applications %>
-      <%#= link_to "Show this property application", application %>
-      <%#= link_to "Edit property application", property_application_path(application) %>
-      <%#= link_to "Delete property application", property_application_path(application) %>
-    <% end %>
+  <div class="container">
+    <div class="application-index-main col-10">
+      <div>
+        <%= link_to "Add a New Application",  new_property_property_application_path(@property), class: "btn btn-lg btn-primary btn-banner m-0 mb-4 centered-content" %>
+      </div>
+      <div>
+        <div class="card-group">
+        <% @property_applications.each do |property_applications| %>
+          <%= render property_applications %>
+          <%#= link_to "Show this property application", application %>
+          <%#= link_to "Edit property application", property_application_path(application) %>
+          <%#= link_to "Delete property application", property_application_path(application) %>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
