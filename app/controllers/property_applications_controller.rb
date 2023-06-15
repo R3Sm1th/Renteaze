@@ -2,7 +2,7 @@ class PropertyApplicationsController < ApplicationController
   def index
     @property_applications = PropertyApplication.all
     @property = Property.find(params[:property_id])
-    #@ filtered_applications = @property_applications.where(property: @property)
+    # @filtered_applications = @property_applications.where(user: current_user)
   end
 
   # GET /property_applications/:id?step=identification

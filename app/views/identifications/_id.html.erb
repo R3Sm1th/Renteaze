@@ -1,16 +1,19 @@
-<div class="mb-3 frame">
-  <div class="frame-content">
-    <div class="text-content">
-      <p><strong>ID Name:</strong> <%= id.name %></p>
-      <p><strong>Issue Date:</strong> <%= id.issue_date %></p>
-      <p><strong>Expiry Date:</strong> <%= id.expiration_date %></p>
-      <%= link_to "Edit", property_application_identification_path(id) %>
-      <%= link_to "Delete", property_application_identification_path(id) %>
-    </div>
-    <div class="image-content">
-      <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},
-  {:fetch_format => :jpeg}
-  ])%>
+<%= turbo_frame_tag dom_id(id) do %>
+  <div class="mb-3 frame">
+    <div class="frame-content">
+      <div class="text-content">
+        <p><strong>Name of ID Document:</strong> <%= id.name %></p>
+        <p><strong>Issue Date:</strong> <%= id.issue_date %></p>
+        <p><strong>Expiry Date:</strong> <%= id.expiration_date %></p>
+        <%#= link_to "Delete", identification_path(id.property_application), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+
+          <%= link_to "Edit", edit_identification_path(id) %>
+      </div>
+      <div class="image-content">
+        <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},
+    {:fetch_format => :jpeg}
+    ])%>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
