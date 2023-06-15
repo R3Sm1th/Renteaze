@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         patch :decline
       end
     end
+    resources :property_application_finalize # , only: []
   end
 
   resources :property_applications, only: [:show, :edit, :update] do
