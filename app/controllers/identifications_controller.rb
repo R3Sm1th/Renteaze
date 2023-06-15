@@ -31,6 +31,12 @@ class IdentificationsController < ApplicationController
     end
   end
 
+  def destroy
+    @identification.destroy
+    redirect_to properties_path, notice: "Indentification documents were successfully destroyed.", status: :see_other
+  end
+
+
   # PATCH/PUT /identification/1
   def update
     @identification = Identification.find(params[:id])

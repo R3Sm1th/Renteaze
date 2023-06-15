@@ -23,6 +23,7 @@ user1.email = "russell@gmail.com"
 user1.password = "ilovemyteam"
 user1.contact_number = "07447862458"
 user1.current_address = "Brighton"
+user1.agent = true
 user1.save!
 
 user2 = User.new
@@ -32,6 +33,7 @@ user2.email = "clementino@gmail.com"
 user2.password = "ilovemyteam"
 user2.contact_number = "07447432453"
 user2.current_address = "Paris"
+user1.tenant = true
 user2.save!
 
 user3 = User.new
@@ -68,44 +70,73 @@ property2 = Property.new(property2)
 property2.photo.attach(io: file, filename: "2-_01_edwyd9.jpg", content_type: "image/jpg")
 property2.save
 
-property3 = {number: 67, street: "Hulme", town: "Manchester", postcode: "M15GG", price_per_month: 1450, availability_date: Date.new(2023,7,24), user: user2}
+property3 = {number: 67, street: "Hulme", town: "Manchester", postcode: "M15GG", price_per_month: 1450, availability_date: Date.new(2023,7,24), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686661635/3.01_jygyrj.jpg")
 property3 = Property.new(property3)
 property3.photo.attach(io: file, filename: "3.01_jygyrj.jpg", content_type: "image/jpg")
 property3.save
 
-property4 = {number: 5, street: "Congleton Road", town: "Alderley Edge", postcode: "SK97AQ", price_per_month: 2400, availability_date: Date.new(2023,9,16), user: user2}
+property4 = {number: 5, street: "Congleton Road", town: "Alderley Edge", postcode: "SK97AQ", price_per_month: 2400, availability_date: Date.new(2023,9,16), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686661751/4-01_crraym.jpg")
 property4 = Property.new(property4)
 property4.photo.attach(io: file, filename: "4-01_crraym.jpg", content_type: "image/jpg")
 property4.save
 
-property5 = {number: 2, street: "Stanhope Road", town: "Bowdon", postcode: "WA143LA", price_per_month: 1500, availability_date: Date.new(2023,8,6), user: user3}
+property5 = {number: 2, street: "Stanhope Road", town: "Bowdon", postcode: "WA143LA", price_per_month: 1500, availability_date: Date.new(2023,8,6), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686661975/5-01_uwrs5s.jpg")
 property5 = Property.new(property5)
 property5.photo.attach(io: file, filename: "5-01_uwrs5s.jpg", content_type: "image/jpg")
 property5.save
 
-property6 = {number: 154, street: "Macclesfield Road", town: "Wilmslow", postcode: "SK92AF", price_per_month: 1876, availability_date: Date.new(2023,10,18), user: user3}
+property6 = {number: 154, street: "Macclesfield Road", town: "Wilmslow", postcode: "SK92AF", price_per_month: 1876, availability_date: Date.new(2023,10,18), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662121/6-01_n5gdk2.jpg")
 property6 = Property.new(property6)
 property6.photo.attach(io: file, filename: "6-01_n5gdk2.jpg", content_type: "image/jpg")
 property6.save
 
-property7 = {number: 100, street: "South Downs", town: "Bowdon", postcode: "WA143DR", price_per_month: 1750, availability_date: Date.new(2023-8-17), user: user3}
+property7 = {number: 100, street: "South Downs", town: "Bowdon", postcode: "WA143DR", price_per_month: 1750, availability_date: Date.new(2023-8-17), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662414/7-01_qqivmj.jpg")
 property7 = Property.new(property7)
 property7.photo.attach(io: file, filename: "7-01_qqivmj.jpg", content_type: "image/jpg")
 property7.save
 
-property8 = {number: 34, street: "Carrwood", town: "Hale Barns", postcode: "WA150EW", price_per_month: 2350, availability_date: Date.new(2023,8,17), user: user3}
+property8 = {number: 34, street: "Carrwood", town: "Hale Barns", postcode: "WA150EW", price_per_month: 2350, availability_date: Date.new(2023,8,17), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
 property8 = Property.new(property8)
 property8.photo.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
 property8.save
+
+
+puts "Creating applications"
+application1 = PropertyApplication.new
+application1.status = ""
+application1.property = property1
+application1.user = user2
+application1.save!
+
+application2 = PropertyApplication.new
+application2.status = ""
+application2.property = property1
+application2.user = user3
+application2.save!
+
+application3 = PropertyApplication.new
+application3.status = ""
+application3.property = property2
+application3.user = user2
+application3.save!
+
+application4 = PropertyApplication.new
+application4.status = ""
+application4.property = property1
+application4.user = user4
+application4.save!
+
+
+puts "Completed applications"
