@@ -10,8 +10,8 @@
       </div>
       <div>
         <div class="card-group">
-        <% @property_applications.each do |property_applications| %>
-          <%= render property_applications %>
+        <% @property_applications.each do |property_application| %>
+          <%= render 'property_application', property_application: property_application  %>
           <%#= link_to "Show this property application", application %>
           <%#= link_to "Edit property application", property_application_path(application) %>
           <%#= link_to "Delete property application", property_application_path(application) %>
