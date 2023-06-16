@@ -62,9 +62,7 @@
       <% end %>
     </main>
 
-    <% if current_user == @property.user %>
-    <%= button_to "accept request", accept_property_property_application_path(@property, @property_application), method: :patch %>
-    <%= button_to "decline request", decline_property_property_application_path(@property, @property_application), method: :patch %>
-    <% end %>
+      <%= button_to "accept request", accept_property_property_application_path(@property, @property_application), method: :patch %>
+      <%= button_to "decline request", decline_property_property_application_path(@property, @property_application), method: :patch %>
   </div>
 </div>

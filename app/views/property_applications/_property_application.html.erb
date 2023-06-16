@@ -15,13 +15,21 @@
   </div>
   <div class="card-footer text-muted">
     <%#= link_to "Show this property application", application %>
-    <%= link_to "Review progress", property_application_path(property_application) %>
-    <%= link_to "Delete application", property_application_path(property_application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
-    <%= link_to "Approve application", property_application_path(property_application) %>
 
+      <%= link_to "Review progress", property_application_path(property_application) %>
+    <%# buttons that the user will see as either agent or visitor %>
+    <% if current_user.tenant? %>
+      <%= link_to "Delete application", property_application_path(property_application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
+      <%= link_to "Edit application", edit_property_application_path(property_application) %>
+      <% else %>
+      <%= link_to "Approve application", property_application_path(property_application) %>
+    <% end %>
+
+    <%# if the application is accepted, tenant can see a button to proceed to the finalizing page %>
     <% if property_application.status == "accepted" %>
       <%= link_to "Proceed with application", property_property_application_finalize_index_path(@property) %>
     <% end %>
+
   </div>
 </div>
 </div>
