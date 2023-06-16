@@ -6,12 +6,9 @@
     <div class="application-index-main col-10">
       <div>
         <div class="card-group">
-        <% @applications.each do |property_application| %>
-          <%= render "my_application", property_application: property_application%>
-          <%#= link_to "Show this property application", application %>
-          <%#= link_to "Edit property application", property_application_path(application) %>
-          <%#= link_to "Delete property application", property_application_path(application) %>
-        <% end %>
+          <% @applications.each do |property_application| %>
+            <%= render 'tenant_property_application', property_application: property_application %>
+          <% end %>
         </div>
       </div>
     </div>
