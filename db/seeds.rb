@@ -115,29 +115,54 @@ property8.save
 
 puts "Creating applications"
 application1 = PropertyApplication.new
-application1.status = ""
+application1.status = "Pending"
 application1.property = property1
 application1.user = user2
 application1.save!
 
 application2 = PropertyApplication.new
-application2.status = ""
+application2.status = "Pending"
 application2.property = property1
 application2.user = user3
 application2.save!
 
 application3 = PropertyApplication.new
-application3.status = ""
+application3.status = "Pending"
 application3.property = property2
 application3.user = user2
 application3.save!
 
 application4 = PropertyApplication.new
-application4.status = ""
+application4.status = "Pending"
 application4.property = property1
 application4.user = user4
 application4.save!
 
+id1 = Identification.new
+id1.name = "Scan of Passport (Clement)"
+id1.issue_date = DateTime.now
+id1.expiration_date = "2033-06-16 12:52:51.129794"
+id1.property_application = application1
+#file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
+#id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
+id1.save!
+
+id2 = Identification.new
+id2.name = "Scan of Drivers Licence (Clement)"
+id2.issue_date = DateTime.now
+id2.expiration_date = "20273-06-16 12:52:51.129794"
+id2.property_application = application1
+#file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
+#id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
+id2.save!
+
+em1 = EmploymentDocument.new
+em1.company_name = "Le Wagon (Clement) batch manager's glowing recommendation"
+em1.date = DateTime.now
+em1.property_application = application1
+#file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
+#id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
+em1.save!
 
 
 puts "Completed applications"
