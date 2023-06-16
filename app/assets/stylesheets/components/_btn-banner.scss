@@ -27,9 +27,11 @@
 }
 
 .btn-banner:hover {
-  background-color: rgb(245, 255, 245);
-  background-image: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  // background-image: none;
+  background-image: linear-gradient(98deg, #80ED99, #38A3A5 49%, #22577A);
   border-radius: 32px;
-  color: black;
-  border: 1px solid black;
+  // border: 1px solid black;
+  transition: background-color .2s;
 }
