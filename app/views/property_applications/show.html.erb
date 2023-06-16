@@ -65,3 +65,12 @@
     <% end %>
   </div>
 </div>
+
+
+<%# TO SEPERATE THE DIFFERENCE BETWEEN LANDLORD AND TENANT %>
+<% user_is_landlord = current_user == @property.user %>
+<% if user_is_landlord %>
+  <%= render 'landlord_application_show', property: @property, application: @property_application %>
+<% else %>
+  <%= render 'tenant_application_show', property: @property, application: @property_application %>
+<% end %>

@@ -42,6 +42,10 @@ class PropertyApplicationsController < ApplicationController
     # end
   end
 
+  def my_applications
+    @applications = current_user.property_applications
+  end
+
   def destroy
     @properties_application = PropertyApplication.find(params[:id])
     @properties_application.destroy
