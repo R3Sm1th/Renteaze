@@ -1,17 +1,22 @@
-<main class="container">
-  <%= link_to sanitize("&larr; Back to Dashboard"), property_application_path(params[:property_application_id]) %>
+<h1>Edit Identification</h1>
 
-  <%= turbo_frame_tag "first_turbo_frame" do %>
-  <h1>Edit Bank Reference</h1>
-    <%= render "form", identifications: @bank_reference %>
-  <% end %>
-</main>
+<%= turbo_frame_tag dom_id(@bank_reference) do %>
+  <div class="mb-3 frame">
+    <div class="frame-content">
+      <div class="text-content">
+        <p><strong>ID Name:</strong> <%= @bank_reference.name %></p>
+        <p><strong>Issue Date:</strong> <%= @bank_reference.issue_date %></p>
+        <p><strong>Expiry Date:</strong> <%= @bank_reference.expiration_date %></p>
+        <%= link_to "Delete", property_application_bank_references_path(@bank_reference), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
-<div>
-  <%= link_to "Back to Properties", properties_path %>
-</div>
-
-
-<div>
-  <%= link_to "Back to Applications", property_application_path(params[:property_application_id])%>
-</div>
+          <%= render "form", identification: @bank_reference %>
+          <%= link_to "Cancel", property_application_path(@identification.property_application) %>
+      </div>
+      <div class="image-content">
+        <%= cl_image_tag(@bank_reference.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},
+    {:fetch_format => :jpeg}
+    ])%>
+      </div>
+    </div>
+  </div>
+<% end %>

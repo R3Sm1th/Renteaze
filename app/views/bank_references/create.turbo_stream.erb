@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend dom_id(@application, :ids), partial: 'bank_references/id', locals: { id: @bank_reference }  %>
+<%= turbo_stream.update 'new_id' do %>
+  <%# Replace with nothing %>
+<% end %>

@@ -1,13 +1,10 @@
 <h1>Bank Reference</h1>
-<%# <%= render "form", identifications: @bank_reference %>
+
+<%= render "form", property: @bank_reference %>
 
 <br>
 
 <div>
-  <%= link_to "Back to Application", properties_path %>
+  <%= link_to "Back to Application", property_application_path(params[:property_application_id]) %>
 </div>
 
-
-<div>
-  <%= link_to "Back to Applications", property_application_path(params[:property_application_id])%>
-</div>
