@@ -1,0 +1,5 @@
+<div>
+  <p><%= property_application.property.address %></p>
+  <p><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
+  <%= link_to 'see more', property_application_path(property_application) %>
+</div>
