@@ -1,14 +1,25 @@
 class PropertyApplicationsController < ApplicationController
 
   def index
-    if current_user.tenant?
-      # grab all properties they have applied to
-      @properties = Property.where(property_applications: current_user.property_applications)
+    @property = Property.find(params[:property_id])
+
+    # Code below remedies issue... only shows YOUR applications not where tenant.
+    if current_user == @property.user
+      @property_applications = PropertyApplication.where(property: @property)
     else
-      # grab all properties they own
-      @properties = Property.where(user: current_user)
+      @property_applications = PropertyApplication.where(property: @property, user: current_user)
     end
-    # @filtered_applications = @property_applications.where(user: current_user)
+
+    # Code below raised the error in the merge.
+    # if current_user.tenant?
+    #   # grab all properties they have applied to
+    #   @properties = Property.where(property_applications: current_user.property_applications)
+    # else
+    #   # grab all properties they own
+    #   @properties = Property.where(user: current_user)
+    # end
+
+    # # @filtered_applications = @property_applications.where(user: current_user)
   end
 
   # GET /property_applications/:id?step=identification
@@ -20,21 +31,21 @@ class PropertyApplicationsController < ApplicationController
     @all = Identification.all
     @id = @all.where(property_application_id: params[:id]).order(created_at: :desc)
 
-    case params[:step]
-    when 'identification'
-      @identification = @property_application.identification || Identification.new
-    when 'bank_reference'
-      @bank_reference = @property_application.bank_reference || BankReference.new
-    # Also need for employment_reference
-    when 'employment_reference'
-      @employment_reference = @property_application.employment_reference || EmploymentReference.new
-    end
+    # case params[:step]
+    # when 'identification'
+    #   @identification = @property_application.identification || Identification.new
+    # when 'bank_reference'
+    #   @bank_reference = @property_application.bank_reference || BankReference.new
+    # # Also need for employment_reference
+    # when 'employment_reference'
+    #   @employment_reference = @property_application.employment_reference || EmploymentReference.new
+    # end
   end
 
   def destroy
-    @properties_applications = PropertyApplication.find(params[:id])
-    @properties_applications.destroy
-    redirect_to root_path, notice: "Post was successfully destroyed.", status: :see_other
+    @properties_application = PropertyApplication.find(params[:id])
+    @properties_application.destroy
+    redirect_to root_path, notice: "Application was successfully destroyed.", status: :see_other
   end
 
   def new

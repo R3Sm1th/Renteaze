@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   def index
     @properties = Property.where(user: current_user)
-    @my_properties = Property.where.not(user: current_user)
+    # @my_properties = Property.where.not(user: current_user)
     # @property_application = PropertyApplication.find(params[:property_application_id])
   end
 
