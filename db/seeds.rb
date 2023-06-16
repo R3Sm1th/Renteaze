@@ -138,14 +138,6 @@ application4.property = property1
 application4.user = user4
 application4.save!
 
-id1 = Identification.new
-id1.name = "Scan of Passport"
-id1.issue_date = "2023-06-16 15:30:45"
-id1.expiration_date = "2033-06-16 15:30:45"
-id1.application = application1
-#file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
-#id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
-id1.save!
 
 
 puts "Completed applications"
