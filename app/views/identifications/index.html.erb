@@ -1,20 +1,43 @@
-<h1>Identifications</h1>
-  <div>
-    <div class="card-group">
-      <% @id.each do |id| %>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= id.name %></h5>
-          <p class="card-text"><%= id.issue_date %></p>
-          <p class="card-text"><small class="text-muted"><%= id.expiration_date %></small></p>
+<div class="application-banner my-5">
+  <h1>Applicant Identification Documentation</h1>
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="col-8">
+      <div style="display: flex">
+        <div class="col-8">
+          <p>It's important to verify the identification of potential applicants to ensure their legitimacy and protect your clients' interests. Here are some key things to look out for when reviewing applicant identification:</p>
+          <ol>
+            <li>Government-issued ID: Check if the applicant has provided a valid government-issued identification document</li>
+            <li>Authenticity features: Familiarize yourself with the security features of various identification documents.</li>
+            <li>Matching information: Cross-reference the information provided other forms and applications submitted by the applicant. </li>
+            <li>Clear photo: Examine the photo on the identification document carefully. </li>
+            <li>Trust your instincts!</li>
+          </ol>
         </div>
-        <%= cl_image_tag id.pdf.key, class:"card-img-bottom" %>
-        <%if current_user == id.property_application.user %>
-          <%= link_to "Amend ID", edit_property_application_identification_path(id.property_application, id.id), class:"card-link" %>
-        <% end %>
-        <%#= link_to "Delete ID", property_path(id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <div class="col-4">
+        <img src="https://cdn.onlinewebfonts.com/svg/img_52066.png" style="width:100%">
+        </div>
       </div>
-      <% end %>
+      <br>
+      <h4 style="color: #22577A;">Documents available for review:</h4>
+      <br>
+      <div class="card-group">
+        <% @id.each do |id| %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= id.name %></h5>
+            <p class="card-text"><%= id.issue_date %></p>
+            <p class="card-text"><small class="text-muted"><%= id.expiration_date %></small></p>
+          </div>
+            <%= link_to "Download PDF", cl_image_tag(id.pdf.key, format: 'pdf', attachment: true), class: "card-img-bottom" %>
+            <%# <%= cl_image_tag id.pdf.key, class:"card-img-bottom" %>
+          <%if current_user == id.property_application.user %>
+            <%= link_to "Amend ID", edit_property_application_identification_path(id.property_application, id.id), class:"card-link" %>
+          <% end %>
+          <%#= link_to "Delete ID", property_path(id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@
   <%# display grid or flex to reflect figma %>
   <div class="property-focus">
     <%# can this be full height 100%vh and sticky? %>
-    <div class="card" style="width: 18rem;">
+    <div class="card" style="width: 100%">
     <%= cl_image_tag @property.photo.key, width:300, class:"card-img-top"%>
       <div class="card-body">
         <h5 class="card-title"><%= @property.number %>, <%= @property.street %></h5>
@@ -64,4 +64,3 @@
     </main>
   </div>
 </div>
-
