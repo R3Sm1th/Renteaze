@@ -1,7 +1,9 @@
-<%= simple_form_for [@property_application, @employment_document] do |f| %>
-  <%= f.input :company_name %>
-  <%= f.input :date %>
-  <%= f.input :status %>
-  <%= f.input :pdf, as: :file %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for [@property_application, @employment_document] do |f| %>
+    <%= f.input :company_name %>
+    <%= f.input :date %>
+    <%= f.input :status %>
+    <%= f.input :pdf, as: :file %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

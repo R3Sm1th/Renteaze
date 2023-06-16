@@ -1,26 +1,32 @@
-<div>
+<div class="container index-titles">
   <h1>Welcome Back, <%= current_user.first_name %></h1>
   <% if current_user.agent = true %>
     <p> Logged in as an AGENT </p>
   <% end %>
 </div>
-<div class="d-flex justify-content-center">
-  <h2> Property Listings Dashboard </h2>
-  <p> You have <%= @properties.count%> listings </p>
-  <div>
+
+
+<div class="container">
+    <h2> Property Listings Dashboard </h2>
+    <p> You have <%= @properties.count%> listings </p>
     <%# <%= link_to "New property", new_property_path %>
-    <a href="<%= new_property_path %>" class="btn btn-primary">
-      New property
+</div>
+  <div class="d-flex justify-content-center ">
+    <div class="" style="margin-right: 35px">
+      <a href="<%= new_property_path %>" class="btn btn-primary">
+        New property
     </a>
+    </div>
+
+    <div class="" style="margin-left: 35px">
+        <a href="<%= root_path %>" class="btn btn-secondary">
+            Homepage
+          </a>
+      </div>
   </div>
 
-  <div>
-   <a href="<%= root_path %>" class="btn btn-secondary">
-      Homepage
-    </a>
-  </div>
 
-  <div class="dashboard container d-flex justify-content-center my-5" >
+  <div class="dashboard  container d-flex justify-content-center my-5" >
     <div class="card-group">
       <% @properties.each do |property| %>
           <%= render property %>
@@ -28,11 +34,14 @@
           <%# if theyre a tenant, ovveride the property_applications %>
           <%property_applications = property_applications.where(user: current_user) if current_user.tenant? %>
           <%# Loop through and display each application %>
-          <%= property.property_applications.where(user: current_user).each do |pa| %>
+          <% property.property_applications.where(user: current_user).each do |pa| %>
             <%= render 'property_applications/property_application', property_application: pa %>
           <% end %>
         <% end %>
     </div>
   </div>
 
-</div>
+
+
+
+<%# dashboard container d-flex justify-content-center my-5 %>
