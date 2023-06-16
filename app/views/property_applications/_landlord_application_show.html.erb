@@ -1,5 +1,4 @@
 <p>Landlord Page</p>
-<p>Put anything here that the lanlord will see</p>
 
 <div class="asset-banner my-5">
   <%# this section to stylise header %>
@@ -33,38 +32,21 @@
   </div>
 
 
-  <div class="dashboard-content">
-    <%= link_to "attach employment documents", new_property_application_employment_document_path(@property_application.id) %>
-    <%= link_to "list employment documents", property_application_employment_documents_path(@property_application.id) %>
-    <%= link_to "Upload Bank References",   new_property_application_bank_reference_path(params[:id]) %>
-    <%= link_to "New Identification",  new_property_application_identification_path(params[:id]) %>
-    <%= link_to "List of Identifications",  property_application_identifications_path(params[:id]) %>
-
-    <main class="container">
-      <%= turbo_frame_tag "first_turbo_frame" do %>
-        <div class="header">
-          <h3>1. Upload Personal Form of Identification</h3>
-          <%= link_to "New ID",
-                      new_property_application_identification_path(params[:id]),
-                      class: "btn btn--primary",
-                      data: { turbo_frame: "new_id" } %>
-        </div>
-      <% end %>
-
-      <%# The new form will be inserted in the turbo frame below %>
-      <%= turbo_frame_tag "new_id" do %>
-      <% end %>
-
-      <%= turbo_frame_tag dom_id(@property_application, :ids) do %>
-        <% @id.each do |id| %>
-          <%= render partial: 'identifications/id', locals: { id: id } %>
+  <div class="ll-dashboard-content">
+    <div class="card" style="width: 80%;">
+      <div class="list-group list-group-flush text-center">
+        <p class="list-group-item"><%= link_to "Review Applicant Identification Documents",  property_application_identifications_path(params[:id]) %></p>
+        <p class="list-group-item"><%= link_to "Review Applicant Employment Documents", property_application_employment_documents_path(@property_application.id) %></p>
+        <p class="list-group-item">Review Applicant Banking References </p>
+        <% if current_user == @property.user %>
+          <%= button_to "accept", accept_property_property_application_path(@property, @property_application), method: :patch, class:"btn btn-success", style:"list-style: none;" %>
+          <%= button_to "decline", decline_property_property_application_path(@property, @property_application), method: :patch, class:"btn btn-warning", style:"list-style: none;" %>
         <% end %>
-      <% end %>
-    </main>
+      </div>
+    </div>
 
-    <% if current_user == @property.user %>
-    <%= button_to "accept request", accept_property_property_application_path(@property, @property_application), method: :patch %>
-    <%= button_to "decline request", decline_property_property_application_path(@property, @property_application), method: :patch %>
-    <% end %>
+
+
+
   </div>
 </div>
