@@ -84,14 +84,14 @@ class PropertyApplicationsController < ApplicationController
     @property = Property.find(params[:property_id])
     @property_application = PropertyApplication.find(params[:id])
     @property_application.update!(status: "accepted")
-    redirect_to property_application_path
+    redirect_to property_property_applications_path
   end
 
   def decline
     @property = Property.find(params[:property_id])
     @property_application = PropertyApplication.find(params[:id])
     @property_application.update!(status: "declined")
-    redirect_to property_application_path
+    redirect_to property_property_applications_path
   end
 
   private
