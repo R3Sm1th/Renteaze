@@ -49,7 +49,7 @@ class PropertyApplicationsController < ApplicationController
   def destroy
     @properties_application = PropertyApplication.find(params[:id])
     @properties_application.destroy
-    redirect_to root_path, notice: "Application was successfully destroyed.", status: :see_other
+    redirect_to my_applications_path, notice: "Application was successfully destroyed.", status: :see_other
   end
 
   def new
@@ -70,7 +70,7 @@ class PropertyApplicationsController < ApplicationController
   end
 
   def edit
-    @properties_applications = PropertyApplication.find(params[:id])
+    @property_application = PropertyApplication.find(params[:id])
   end
 
   def update
