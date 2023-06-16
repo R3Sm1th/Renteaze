@@ -33,7 +33,7 @@ user2.email = "clementino@gmail.com"
 user2.password = "ilovemyteam"
 user2.contact_number = "07447432453"
 user2.current_address = "Paris"
-user1.tenant = true
+user2.tenant = true
 user2.save!
 
 user3 = User.new
