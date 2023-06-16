@@ -1,9 +1,10 @@
-<h1>Edit Property</h1>
+<div class="container">
+  <h1>Edit Property</h1>
+  <%= render "form", property: @property %>
 
-<%= render "form", property: @property %>
+  <br>
 
-<br>
-
-<div>
-  <%= link_to "Back to Properties", properties_path %>
+  <div>
+    <%= link_to "Back to Properties", properties_path %>
+  </div>
 </div>

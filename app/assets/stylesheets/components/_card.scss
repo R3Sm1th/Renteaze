@@ -4,6 +4,7 @@
   background-color: white;
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
+  margin-bottom: 30px;
 }
 
 
@@ -15,8 +16,38 @@
 
 .fa-location-arrow,
 .fa-pen-to-square,
-.fa-trash {
+.fa-trash,
+.fa-magnifying-glass,
+.fa-check {
   font-size: 25px;
   margin-left: 5px;
+  text-decoration: none;
+}
 
+.card-img-top {
+ object-fit: cover;
+ height: 200px;
+ width: auto;
+ border-radius: 15px;
+}
+
+#firstcardimage {
+  height:auto;
+}
+
+#secondcardimage {
+  height:auto;
+}
+
+#thirdcardimage {
+  height:auto;
+}
+
+
+.fa-location-arrow:hover,
+.fa-pen-to-square:hover,
+.fa-trash:hover,
+.fa-magnifying-glass:hover,
+.fa-check:hover  {
+  color: #57CC99;
 }
