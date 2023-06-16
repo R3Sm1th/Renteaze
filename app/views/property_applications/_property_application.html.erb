@@ -13,8 +13,12 @@
     <p> Last activity: <%= property_application.user.updated_at %> </p>
     <%# <a href="#" class="btn btn-primary">Mark as Approved</a> %>
   </div>
-  <div class="card-footer text-muted">
+  <div class="card-footer text-muted d-flex justify-content-center ">
     <%#= link_to "Show this property application", application %>
+
+    <%= link_to "", property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5"%>
+    <%= link_to "", property_application_path(property_application),class:"fa-solid fa-trash mx-5", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
+    <%= link_to "", property_application_path(property_application), class:"fa-solid fa-check mx-5" %>
 
       <%= link_to "Review progress", property_application_path(property_application) %>
     <%# buttons that the user will see as either agent or visitor %>
