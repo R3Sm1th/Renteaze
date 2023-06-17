@@ -4,11 +4,11 @@
   </div>
   <div class="card-body">
     <h5 class="card-title"> <% status = property_application.status.nil? ? "In Progress" : property_application.status %> <%= status %></h5>
-     <div class="progress mb-2 mt-2">
-      <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
-      <div class="progress-bar bg-success" role="progressbar" style="width: 33%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-      <div class="progress-bar bg-info" role="progressbar" style="width: 33%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
+      <% if property_application.status == "accepted" || "Accepted" %>
+        <div class="progress mt-2 mb-2" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" style="width: 100%">100%</div>
+        </div>
+      <% end %>
     <p class="card-text">Application commenced: <%= property_application.user.created_at %> </p>
     <p> Last activity: <%= property_application.user.updated_at %> </p>
     <%# <a href="#" class="btn btn-primary">Mark as Approved</a> %>
