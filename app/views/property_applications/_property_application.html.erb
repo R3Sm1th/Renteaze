@@ -6,13 +6,13 @@
     <h5 class="card-title"> <% status = property_application.status.nil? ? "In Progress" : property_application.status %> <%= status %></h5>
     <%# the code below adds up progress and changes bar status inserted into bootstrap line 14 as progress %>
     <% progress = 0  %>
-    <% progress += 33 if property_application.identifications.exists? %>
-    <% progress += 33 if property_application.bank_references.exists? %>
-    <% progress += 34 if property_application.employment_documents.exists? %>
-    <%progress = 100 if property_application.status == "accepted"%>
+    <% progress += 33.33 if property_application.identifications.exists? %>
+    <% progress += 33.33 if property_application.bank_references.exists? %>
+    <% progress += 33.33 if property_application.employment_documents.exists? %>
+    <%progress = 100 if property_application.status == "accepted" || property_application.status == "Accepted" %>
     <%#= progress %>
     <div class="progress mt-2 mb-2" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-      <div class="progress-bar" style="width: <%= progress %>%"><%= progress %></div>
+      <div class="progress-bar" style="width: <%= progress.round(0) %>%"><%= progress.round(0) %></div>
     </div>
     <p class="card-text">Application commenced: <%= property_application.user.created_at %> </p>
     <p> Last activity: <%= property_application.user.updated_at %> </p>

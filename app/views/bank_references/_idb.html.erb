@@ -1,0 +1,23 @@
+<%# <% @b_ref.each do |b_ref| %>
+<%# <div class="mb-3" style="border: 1px solid black;"> %>
+  <%# <%= b_ref.name %>
+<%# </div> %>
+<%# <% end %>
+<%= turbo_frame_tag dom_id(id) do %>
+  <div class="mb-3 frame">
+    <div class="frame-content">
+      <div class="text-content">
+        <p><strong>Bank Name:</strong> <%= id.name %></p>
+        <p><strong>Issue Date:</strong> <%= id.date %></p>
+        <%#= link_to "Delete", identification_path(id.property_application), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+
+        <%= link_to "Edit", edit_property_application_bank_reference_path(id) %>
+      </div>
+      <div class="image-content">
+        <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},
+                        {:fetch_format => :jpeg}
+                        ])%>
+      </div>
+    </div>
+  </div>
+<% end %>
