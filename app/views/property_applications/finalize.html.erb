@@ -9,6 +9,17 @@
     <p> Insert chatbox here</p>
     </div>
 
+    <%= simple_form_for(@property_application, url: set_move_in_property_application_path(@property_application)) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+      <%= f.input :move_in_date, as: :string, wrapper: :date %>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+
     <%# geomap section on the right hand side %>
     <div class="col-12 col-lg-4">
       <div style="width: 700px; height: 600px;"

@@ -12,7 +12,6 @@ Rails.application.routes.draw do
         patch :decline
       end
     end
-    resources :property_application_finalize, only: [:index]
   end
 
   resources :property_applications, only: [:index, :show, :edit, :update, :destroy] do
@@ -20,6 +19,10 @@ Rails.application.routes.draw do
     resources :employment_documents, only: [:index, :new, :create, :edit ]
     resources :identifications, only: [:index, :new, :create]
     resources :messages
+    member do
+      get :finalize
+      patch :set_move_in
+    end
   end
   resources :identifications, only: [:show, :edit, :update, :destroy]
   resources :employment_documents, only:[:destroy, :show, :edit, :update]

@@ -65,7 +65,7 @@ class PropertyApplicationsController < ApplicationController
   end
 
   def create
-    @property_application = PropertyApplication.new(properties_applications_params)
+    @property_application = PropertyApplication.new(property_applications_params)
     @property = Property.find(params[:property_id])
     @property_application.property = @property
 
@@ -82,7 +82,7 @@ class PropertyApplicationsController < ApplicationController
 
   def update
     @properties_applications = PropertyApplication.find(params[:id])
-    @properties_applications.update(properties_applications_params)
+    @properties_applications.update(property_applications_params)
     redirect_to property_application_path
   end
 
@@ -101,9 +101,26 @@ class PropertyApplicationsController < ApplicationController
     redirect_to property_property_applications_path
   end
 
+  # GET /property_applications/:id/finalize
+  def finalize
+    @property_application = PropertyApplication.find(params[:id])
+    @property = @property_application.property
+  end
+
+  def set_move_in
+    @property_application = PropertyApplication.find(params[:id])
+    @property = @property_application.property
+
+    if @property_application.update(property_applications_params)
+      redirect_to finalize_property_application_path(@property_application), notice: 'You successfully set your move in date   '
+    else
+      render :finalize, status: :unprocessable_entity
+    end
+  end
+
   private
 
-  def properties_applications_params
-    params.require(:property_application).permit(:user_id)
+  def property_applications_params
+    params.require(:property_application).permit(:user_id, :move_in_date)
   end
 end
