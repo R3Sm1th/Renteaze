@@ -1,16 +1,15 @@
-<div>
-  <div class="application-banner my-5">
+<div class="dashboard  container d-flex justify-content-center my-5" >
+  <div class="text-center my-3" style="background-color: #80ED99">
     <h1> My Applications </h1>
   </div>
   <div>
-    <div class="application-index-main col-10">
-      <div>
-        <div class="card-group">
-          <% @applications.each do |property_application| %>
-            <%= render 'tenant_property_application', property_application: property_application %>
-          <% end %>
+    <div class="d-flex justify-content-center">
+      <div class="my-3" style="margin-right: 35px, margin-left: 35px">
+            <% @applications.each do |property_application| %>
+              <%= render 'tenant_property_application', property_application: property_application %>
+            <% end %>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </div>

@@ -1,7 +1,5 @@
-<p>Tenant Page</p>
-<p>Put anything here that the Tenant will see</p>
-
 <div class="asset-banner my-5">
+<a href="<%=property_property_applications_path(property) %>" class="btn btn-primary d-block mx-auto " style="width: 150px;">Back to Building</a>
   <%# this section to stylise header %>
   <% if @property.user == current_user %>
     <h1> Application Progress </h1>
@@ -64,4 +62,3 @@
     </main>
   </div>
 </div>
-
