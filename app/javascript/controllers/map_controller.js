@@ -11,7 +11,7 @@ export default class extends Controller {
   connect() {
     // hide the mapbox token
     mapboxgl.accessToken = this.apiKeyValue
-
+    console.log("hello")
     // In JVscript, keyword this. makes the map a instance variable(@), so it can be accessed below
     this.map = new mapboxgl.Map({
       // make container for the map to exist in, this.element refers to the stimulus controller's HTML element instance variable (in flats index.html)
@@ -46,7 +46,7 @@ export default class extends Controller {
     // when we extend the bounds we are including all the markers in the bound, so you can see all the markers in one view
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     // after bounds, we are passing options to customize the view
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 550 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 450 })
   }
 
 }
