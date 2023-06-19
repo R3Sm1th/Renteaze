@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'flats/index'
   devise_for :users
   root to: "pages#home"
   get "/uitest", to: "pages#uitest"
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
         patch :decline
       end
     end
-    resources :property_application_finalize # , only: []
+    resources :property_application_finalize, only: [:index]
   end
 
   resources :property_applications, only: [:index, :show, :edit, :update, :destroy] do

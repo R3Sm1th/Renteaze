@@ -123,6 +123,7 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.4.0)
       sassc (~> 2.0)
+    geocoder (1.8.1)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
@@ -136,7 +137,7 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    jsbundling-rails (1.1.1)
+    jsbundling-rails (1.1.2)
       railties (>= 6.0.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
@@ -153,7 +154,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2023.0218.1)
     mini_mime (1.1.2)
-    minitest (5.18.0)
+    minitest (5.18.1)
     msgpack (1.7.1)
     net-imap (0.3.6)
       date
@@ -290,6 +291,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
+  geocoder
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

@@ -3,6 +3,9 @@
      <li class="list-group-item"><%= property_application.property.address %></p>
      <li class="list-group-item"><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
      <li class="list-group-item"><%= link_to '', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5" %>
+       <% if property_application.status == "accepted" %>
+         <%= link_to "Proceed with application", property_property_application_finalize_index_path(@applications) %>
+       <% end %>
   </ul>
      <br>
 </div>
