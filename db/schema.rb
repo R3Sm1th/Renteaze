@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_14_153035) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -64,6 +64,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_153035) do
     t.index ["property_application_id"], name: "index_employment_documents_on_property_application_id"
   end
 
+  create_table "flats", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+  end
+
   create_table "identifications", force: :cascade do |t|
     t.string "name"
     t.datetime "issue_date"
@@ -95,6 +104,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_14_153035) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["user_id"], name: "index_properties_on_user_id"
   end
 

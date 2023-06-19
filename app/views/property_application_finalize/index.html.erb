@@ -1,3 +1,23 @@
 <h1>Here is the beatiful tenant page</h1>
 
+<%# responsive design, compatible for mobile and desktop %>
+<div class="container">
+  <div class="row">
 
+    <%# chatbox section on the left hand side%>
+    <div class="col-12 col-lg-8">
+    <p> Insert chatbox here</p>
+    </div>
+
+    <%# geomap section on the right hand side %>
+    <div class="col-12 col-lg-4">
+      <div style="width: 700px; height: 600px;"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        <%# passing api key here so we can use it in our JVscript controller %>
+        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+
+  </div>
+</div>

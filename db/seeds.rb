@@ -22,7 +22,7 @@ user1.surname = "Smith"
 user1.email = "russell@gmail.com"
 user1.password = "ilovemyteam"
 user1.contact_number = "07447862458"
-user1.current_address = "Brighton"
+user1.current_address = "5B, Preston Park Avenue, Brighton, BN1 1AX"
 user1.agent = true
 user1.save!
 
@@ -32,7 +32,7 @@ user2.surname = "Carr"
 user2.email = "clementino@gmail.com"
 user2.password = "ilovemyteam"
 user2.contact_number = "07447432453"
-user2.current_address = "Paris"
+user2.current_address = "126, Rue de Rivoli, Paris, 75001"
 user2.tenant = true
 user2.save!
 
@@ -56,7 +56,7 @@ user4.save!
 
 puts "creating buildings...."
 
-property1 = {number: 2, street: "Wigan Road", town: "Manchester", postcode: "WN23BE", price_per_month: 650, availability_date: Date.new(2023,8,17), user: user1}
+property1 = {number: 2, street: "Wigan Road", town: "Manchester", postcode: "WN23BE", price_per_month: 650, availability_date: Date.new(2023,8,17), address: "2, Wigan Road, Manchester, WN23BE", user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686660764/1_-_01_rnuov7.jpg")
 property1 = Property.new(property1)
