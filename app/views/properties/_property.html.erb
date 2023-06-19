@@ -13,10 +13,10 @@
         <li class="list-group-item">Available <%= date %></li>
         <li class="list-group-item"><%= property.postcode %></li>
       </ul>
-      <div class="card-body">
+      <div class="card-body edit-delete-icons">
         <%# <%= link_to "", property_property_applications_path(property), class:"fa-solid fa-location-arrow" %>
-        <%= link_to "", edit_property_path(property), class:"fa-solid fa-pen-to-square" %>
-        <%= link_to "", property_path(property), class:"fa-solid fa-trash",  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <%= link_to "", edit_property_path(property), class:"fa-solid fa-pen-to-square","data-bs-toggle": "tooltip", title: "Edit" %>
+        <%= link_to "", property_path(property), class:"fa-solid fa-trash",  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, "data-bs-toggle": "tooltip", title: "Delete" %>
       </div>
   <% end %>
     </div>

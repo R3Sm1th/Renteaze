@@ -29,11 +29,11 @@
           <%= render property %>
           <% property_applications = property.property_applications %>
           <%# if theyre a tenant, ovveride the property_applications %>
-          <%property_applications = property_applications.where(user: current_user) if current_user.tenant? %>
+          <%# <%property_applications = property_applications.where(user: current_user) if current_user.tenant? %>
           <%# Loop through and display each application %>
-          <% property.property_applications.where(user: current_user).each do |pa| %>
-            <%= render 'property_applications/property_application', property_application: pa %>
-          <% end %>
+          <%# <% property.property_applications.where(user: current_user).each do |pa| %>
+            <%# <%= render 'property_applications/property_application', property_application: pa %>
+          <%# <% end %> 
         <% end %>
     </div>
   </div>
