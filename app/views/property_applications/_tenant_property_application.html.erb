@@ -1,5 +1,8 @@
-<div class="card" style="width: 18rem;">
-  <p><%= property_application.property.address %></p>
-  <p><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
-  <%= link_to '', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5" %>
+<div class="card-body" style="width: 18rem, margin-bottom: 50px">
+  <ul class="list-group list-group-flush">
+     <li class="list-group-item"><%= property_application.property.address %></p>
+     <li class="list-group-item"><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
+     <li class="list-group-item"><%= link_to '', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5" %>
+  </ul>
+     <br>
 </div>

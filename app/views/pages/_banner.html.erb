@@ -6,11 +6,13 @@
     <p class="mt-3 ">Key features like vetting, documentation, progress monitoring and much more on your fingertips. </p>
     <div class="btn-wrap d-flex justify-content-between align-items-center rounded-5 my-5">
   <%# <% user_is_landlord = current_user == @property.user %>
-      <%# <% if current_user == @property.user %>
-     <%= link_to "Dashboard", properties_path, class: "btn btn-lg btn-primary btn-banner m-0"  %>
-      <%# <% else %>
-     <%# <%= link_to "Tenant",  my_applications_path, class: "btn btn-lg btn-primary btn-banner m-0 "  %>
-      <%# <% end %>
+      <% if current_user && current_user.agent%>
+     <%= link_to "Agent Dashboard", properties_path, class: "btn btn-lg btn-primary btn-banner m-0 "%>
+      <% elsif current_user && current_user.tenant%>
+     <%= link_to "Tenant Dashboard",  my_applications_path, class: "btn btn-lg btn-primary btn-banner m-0"  %>
+     <% else%>
+     <%= link_to "Sign In", user_session_path, class: "btn btn-lg btn-primary btn-banner m-0"  %>
+      <% end %>
    </div>
   </div>
 </div>
