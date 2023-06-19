@@ -30,6 +30,11 @@
             <p class="card-text"><small class="text-muted"><%= id.expiration_date %></small></p>
           </div>
             <%= link_to "Download PDF", cl_image_tag(id.pdf.key, format: 'pdf', attachment: true), class: "card-img-bottom" %>
+            <%= cl_image_tag(id.pdf.key,
+                    format: 'pdf',
+                    flags: "attachment",
+                    class: "card-img-bottom"
+                  ) %>
             <%# <%= cl_image_tag id.pdf.key, class:"card-img-bottom" %>
           <%if current_user == id.property_application.user %>
             <%= link_to "Amend ID", edit_property_application_identification_path(id.property_application, id.id), class:"card-link" %>
