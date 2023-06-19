@@ -1,20 +1,11 @@
-// import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr";
 
 // Connects to data-controller="flatpickr"
-// export default class extends Controller {
-//   connect() {
-//   }
-// }
-// Flatpickr Install
+export default class extends Controller {
+  static targets = ["moveInDate"]
+  connect() {
+    flatpickr(this.moveInDateTarget, {})
 
-// import { Controller } from "@hotwired/stimulus";
-// import flatpickr from "flatpickr";
-
-// export default class extends Controller {
-//   connect() {
-//     new flatpickr(this.element, {
-//       enableTime: true
-//       // more options available on the documentation!
-//     });
-//   }
-// }
+  }
+}
