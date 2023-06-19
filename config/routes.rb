@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   resources :property_applications, only: [:index, :show, :edit, :update, :destroy] do
     resources :bank_references, only: [:index, :new, :show, :create, :edit]
-    resources :employment_documents, only: [:index, :new, :create ]
+    resources :employment_documents, only: [:index, :new, :create, :edit ]
     resources :identifications, only: [:index, :new, :create]
     resources :messages
   end

@@ -31,6 +31,13 @@ class PropertyApplicationsController < ApplicationController
     @all = Identification.all
     @id = @all.where(property_application_id: params[:id]).order(created_at: :desc)
 
+    @alle = EmploymentDocument.all
+    @ide = @alle.where(property_application_id: params[:id]).order(created_at: :desc)
+
+    @allb = BankReference.all
+    @idb = @allb.where(property_application_id: params[:id]).order(created_at: :desc)
+
+
     # case params[:step]
     # when 'identification'
     #   @identification = @property_application.identification || Identification.new

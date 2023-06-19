@@ -1,9 +1,28 @@
-<div class="container">
+<%# <%= <h1>New Employment Form</h1> %>
+
+<%= render "form", employment_document: @employment_document %>
+
+<%# <div class="container">
   <%= simple_form_for [@property_application, @employment_document] do |f| %>
-    <%= f.input :company_name %>
-    <%= f.input :date %>
-    <%= f.input :status %>
-    <%= f.input :pdf, as: :file %>
-    <%= f.button :submit, class: "btn btn-primary" %>
+    <%# <%= f.input :company_name %>
+    <%# <%= f.input :date %>
+    <%# <%= f.input :status %>
+    <%# <%= f.input :pdf, as: :file %>
+    <%# <%= f.button :submit, class: "btn btn-primary" %>
+  <%# <% end %>
+<%# </div> %>
+
+<main class="container">
+  <%= link_to sanitize("&larr; Back to Dashboard"), property_application_path(params[:property_application_id]) %>
+
+  <%# <%= turbo_frame_tag "second_frame" do %>
+  <div class="header">
+    <h1>New Employment Reference</h1>
+  </div>
+
+  <%= turbo_frame_tag "new_e" do %>
+    <%= render "form", employment_document: @employment_document %>
+    <%= link_to 'Cancel', property_application_path(@property_application) %>
   <% end %>
-</div>
+
+</main>

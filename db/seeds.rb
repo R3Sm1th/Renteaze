@@ -143,8 +143,8 @@ id1.name = "Scan of Passport (Clement)"
 id1.issue_date = DateTime.now
 id1.expiration_date = "2033-06-16 12:52:51.129794"
 id1.property_application = application1
-#file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
-#id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
+# file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
+# id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/pdf")
 id1.save!
 
 id2 = Identification.new

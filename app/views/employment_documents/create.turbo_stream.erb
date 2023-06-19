@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend dom_id(@employment_document, :ids), partial: 'employment_documents/ide', locals: { id: id }  %>
+<%= turbo_stream.update 'new_ide' do %>
+  <%# Replace with nothing %>
+<% end %>

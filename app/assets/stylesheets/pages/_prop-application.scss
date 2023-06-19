@@ -16,10 +16,9 @@
   // align-items: center;
 }
 .property-focus {
-  display: flex;
   width: 33%;
   flex-direction: column;
-  background-color: $lime_green;
+  // background-color: $lime_green;
   align-items: center;
   height: 100vh;
   position: sticky;
@@ -53,4 +52,6 @@
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  height: 100vh;
 }
