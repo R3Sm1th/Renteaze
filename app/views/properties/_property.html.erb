@@ -1,20 +1,23 @@
+
 <div id="<%= dom_id property %>" class="col">
-  <div class="card" style="width: 18rem;">
-    <%= cl_image_tag property.photo.key, width:300, class:"card-img-top"%>
-    <div class="card-body">
-      <h5 class="card-title"><%= property.number %>, <%= property.street %></h5>
-      <p class="card-text"><%= property.town %></p>
+    <div class="card" style="width: 18rem;">
+  <%= link_to property_property_applications_path(property) do %>
+      <%= cl_image_tag property.photo.key, width:300, class:"card-img-top"%>
+      <div class="card-body">
+        <h5 class="card-title"><%= property.number %>, <%= property.street %></h5>
+        <p class="card-text"><%= property.town %></p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">£ <%= property.price_per_month %> pcm</li>
+        <% date = property.availability_date < DateTime.now ? " Immediately" : property.availability_date.strftime('%m/%d/%Y')%>
+        <li class="list-group-item">Available <%= date %></li>
+        <li class="list-group-item"><%= property.postcode %></li>
+      </ul>
+      <div class="card-body">
+        <%# <%= link_to "", property_property_applications_path(property), class:"fa-solid fa-location-arrow" %>
+        <%= link_to "", edit_property_path(property), class:"fa-solid fa-pen-to-square" %>
+        <%= link_to "", property_path(property), class:"fa-solid fa-trash",  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      </div>
+  <% end %>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">£ <%= property.price_per_month %> pcm</li>
-      <% date = property.availability_date < DateTime.now ? " Immediately" : property.availability_date.strftime('%m/%d/%Y')%>
-      <li class="list-group-item">Available <%= date %></li>
-      <li class="list-group-item"><%= property.postcode %></li>
-    </ul>
-    <div class="card-body">
-      <%= link_to "", property_property_applications_path(property), class:"fa-solid fa-location-arrow" %>
-      <%= link_to "", edit_property_path(property), class:"fa-solid fa-pen-to-square" %>
-      <%= link_to "", property_path(property), class:"fa-solid fa-trash",  data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-    </div>
-  </div>
 </div>
