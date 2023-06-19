@@ -1,4 +1,4 @@
-<%# <%= <h1>New Identification Form</h1> %> 
+<%# <%= <h1>New Identification Form</h1> %>
 
 <%= render "form", identifications: @identification %>
 
@@ -18,5 +18,13 @@
     <%= render "form", identifications: @identification %>
     <%= link_to 'Cancel', property_application_path(@application) %>
   <% end %>
+
+  <%# NEW IDEA %>
+    <%= turbo_frame_tag :application_step do %>
+      <%= render 'property_applications/steps', current_step: 1, property_application: @application %>
+      <%= render "form", identifications: @identification %>
+      <%= link_to 'Cancel', tenant_index_property_application_identifications_path(@application) %>
+    <% end %>
+  <%# END NEW IDEA %>
 
 </main>

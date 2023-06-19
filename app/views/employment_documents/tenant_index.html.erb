@@ -1,0 +1,11 @@
+<%= turbo_frame_tag :application_step do %>
+  <%= render 'property_applications/steps', current_step: 2, property_application: @property_application %>
+  <%= link_to "New Employment Document",
+    new_property_application_employment_document_path(@property_application),
+    class: "btn btn-lg btn-primary btn-banner m-0",
+    style: "width: 100%" %>
+  <% @employment_documents.each do |emp_doc| %>
+    <%= render 'employment_documents/ide', id: emp_doc %>
+    <%# <p>Employment Document: <%= emp_doc.id %>
+  <% end %>
+<% end %>

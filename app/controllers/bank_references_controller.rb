@@ -7,6 +7,11 @@ class BankReferencesController < ApplicationController
     # @identifications = @all.where(property_application.user.email = current
   end
 
+  def tenant_index
+    @application = PropertyApplication.find(params[:property_application_id])
+    @bank_refs = BankReference.where(property_application: @application)
+  end
+
   def new
     @application = PropertyApplication.find(params[:property_application_id])
     @bank_reference = BankReference.new
@@ -34,16 +39,14 @@ class BankReferencesController < ApplicationController
 
   # / CODE AFTER REPLICA
   def create
+    @application = PropertyApplication.find(params[:property_application_id])
     @bank_reference = BankReference.new(bank_reference_params)
     @bank_reference.property_application = @application
 
-    respond_to do |format|
-      if @bank_reference.save
-        format.html { redirect_to property_application_path(@property), notice: "Bank Reference page was successfully updated." }
-        format.turbo_stream
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @bank_reference.save
+      redirect_to tenant_index_property_application_bank_references_path(@application), notice: "Bank Reference page was successfully updated."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

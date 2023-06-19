@@ -6,7 +6,7 @@
         <p><strong>Issue Date:</strong> <%= id.date %></p>
         <%#= link_to "Delete", identification_path(id.property_application), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
-        <%= link_to "Edit", edit_property_application_employment_document_path(id) %>
+          <%= link_to "Edit", edit_employment_document_path(id) %>
       </div>
       <div class="image-content">
         <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},

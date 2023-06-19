@@ -1,0 +1,10 @@
+<%= turbo_frame_tag :application_step do %>
+  <%= render 'property_applications/steps', current_step: 3, property_application: @application %>
+  <%= link_to "New Bank Statement",
+    new_property_application_bank_reference_path(@application),
+    class: "btn btn-lg btn-primary btn-banner m-0",
+    style: "width: 100%" %>
+  <% @bank_refs.each do |id| %>
+    <%= render 'bank_references/idb', id: id %>
+  <% end %>
+<% end %>

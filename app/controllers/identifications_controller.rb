@@ -1,10 +1,15 @@
 class IdentificationsController < ApplicationController
-  before_action :set_property_application, only: %i[ index new create]
+  before_action :set_property_application, only: %i[ index tenant_index new create]
+
   def index
     @all = Identification.all
     @id = @all.where(property_application_id: @application)
     # raise
     # @identifications = @all.where(property_application.user.email = current
+  end
+
+  def tenant_index
+    @ids = Identification.where(property_application: @application)
   end
 
   def new

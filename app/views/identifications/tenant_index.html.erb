@@ -1,0 +1,10 @@
+<%= turbo_frame_tag :application_step do %>
+  <%= render 'property_applications/steps', current_step: 1, property_application: @application %>
+  <%= link_to "New ID",
+    new_property_application_identification_path(@application),
+    class: "btn btn-lg btn-primary btn-banner m-0",
+    style: "width: 100%" %>
+  <% @ids.each do |id| %>
+    <%= render 'identifications/id', id: id %>
+  <% end %>
+<% end %>

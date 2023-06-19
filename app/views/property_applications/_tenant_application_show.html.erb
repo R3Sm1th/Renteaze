@@ -32,85 +32,19 @@
 
 
   <div class="dashboard-content">
+
+
+    <h1>Step-by-Step Guide</h1>
+    <p>In order for your agent to process your application without delay you will need to upload at least one form of documentation in each of the following catagories. Once you have finished then proceed to select proceed at the bottom of the page which will flag application for your agents attention. </p>
+    <div class="border p-2">
+      <%= turbo_frame_tag :application_step, src: tenant_index_property_application_identifications_path(@property_application) do %>
+        <p>Loading step....</p>
+      <% end %>
+    </div>
+
     <%# <%= link_to "attach employment documents", new_property_application_employment_document_path(@property_application.id) %>
     <%# <%= link_to "list employment documents", property_application_employment_documents_path(@property_application.id) %>
     <%# <%= link_to "Upload Bank References",   new_property_application_bank_reference_path(params[:id]) %>
     <%# <%= link_to "New Identification",  new_property_application_identification_path(params[:id]) %>
     <%# <%= link_to "List of Identifications",  property_application_identifications_path(params[:id]) %>
-    <p>In order for your agent to process your application without delay you will need to upload at least one form of documentation in each of the following catagories. Once you have finished then proceed to select proceed at the bottom of the page which will flag application for your agents attention. </p>
-    <div>
-      <h3>Step 1</h3>
-      <h5>Upload Personal Form of Identification</h5>
-      <main class="container">
-        <%= turbo_frame_tag "first_turbo_frame" do %>
-          <div class="header">
-            <%= link_to "New ID",
-                        new_property_application_identification_path(params[:id]),
-                        class: "btn btn-lg btn-primary btn-banner m-0",
-                        style: "width: 100%",
-                        data: { turbo_frame: "new_id" } %>
-          </div>
-        <% end %>
-
-        <%# The new form will be inserted in the turbo frame below %>
-        <%= turbo_frame_tag "new_id" do %>
-        <% end %>
-
-        <%= turbo_frame_tag dom_id(@property_application, :ids) do %>
-          <% @id.each do |id| %>
-            <%= render partial: 'identifications/id', locals: { id: id } %>
-          <% end %>
-        <% end %>
-      </main>
-    </div>
-    <div>
-      <h3>Step 2</h3>
-      <h5>Upload Employment Document</h5>
-      <main class="container">
-        <%= turbo_frame_tag "second_turbo_frame" do %>
-          <div class="header">
-            <%= link_to "New Employment Document",
-                        new_property_application_employment_document_path(params[:id]),
-                        class: "btn btn-lg btn-primary btn-banner m-0",
-                        style: "width: 100%",
-                        data: { turbo_frame: "new_e" } %>
-          </div>
-
-        <% end %>
-                <%# The new form will be inserted in the turbo frame below %>
-        <%= turbo_frame_tag "new_e" do %>
-        <% end %>
-
-        <%= turbo_frame_tag dom_id(@property_application, :ids) do %>
-          <% @ide.each do |id| %>
-            <%= render partial: 'employment_documents/ide', locals: { id: id } %>
-          <% end %>
-        <% end %>
-      </main>
-    </div>
-    <div>
-      <h3>Step 3</h3>
-      <h5>Upload Banking References</h5>
-      <main class="container">
-        <%= turbo_frame_tag "third_turbo_frame" do %>
-          <div class="header">
-            <%= link_to "New Banking Reference",
-                        new_property_application_bank_reference_path(params[:id]),
-                        class: "btn btn-lg btn-primary btn-banner m-0",
-                        style: "width: 100%",
-                        data: { turbo_frame: "new_b" } %>
-          </div>
-
-        <% end %>
-        <%# The new form will be inserted in the turbo frame below %>
-      <%= turbo_frame_tag "new_b" do %>
-      <% end %>
-      <%= turbo_frame_tag dom_id(@property_application, :ids) do %>
-          <% @idb.each do |id| %>
-            <%= render partial: 'bank_references/idb', locals: { id: id } %>
-          <% end %>
-        <% end %>
-      </main>
-
-    </div>
-</div>
+  </div>
