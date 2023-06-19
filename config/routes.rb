@@ -15,9 +15,21 @@ Rails.application.routes.draw do
   end
 
   resources :property_applications, only: [:index, :show, :edit, :update, :destroy] do
-    resources :bank_references, only: [:index, :new, :show, :create, :edit]
-    resources :employment_documents, only: [:index, :new, :create, :edit ]
-    resources :identifications, only: [:index, :new, :create]
+    resources :bank_references, only: [:index, :new, :create] do
+      collection do
+        get :tenant_index
+      end
+    end
+    resources :employment_documents, only: [:index, :new, :create, :edit ] do
+      collection do
+        get :tenant_index
+      end
+    end
+    resources :identifications, only: [:index, :new, :create] do
+      collection do
+        get :tenant_index
+      end
+    end
     resources :messages
     member do
       get :finalize
@@ -26,4 +38,5 @@ Rails.application.routes.draw do
   end
   resources :identifications, only: [:show, :edit, :update, :destroy]
   resources :employment_documents, only:[:destroy, :show, :edit, :update]
+  resources :bank_references, only:[:destroy, :show, :edit, :update]
 end

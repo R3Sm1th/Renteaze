@@ -1,0 +1,20 @@
+<% steps_and_links = [
+  tenant_index_property_application_identifications_path(property_application),
+  tenant_index_property_application_employment_documents_path(property_application),
+  tenant_index_property_application_bank_references_path(property_application)
+] %>
+
+<div class="d-flex justify-space-between">
+  <% 3.times do |i| %>
+    <% index = i + 1 %>
+    <% if current_step == index %>
+      <div class="btn btn-primary">
+        <p style="color: green;">Step <%= index %></p>
+      </div>
+    <% else %>
+      <div class="btn btn-warning">
+        <%= link_to "Step #{index}", steps_and_links[i] %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

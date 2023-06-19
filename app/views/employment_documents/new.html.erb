@@ -25,4 +25,12 @@
     <%= link_to 'Cancel', property_application_path(@property_application) %>
   <% end %>
 
+ <%# NEW IDEA %>
+    <%= turbo_frame_tag :application_step do %>
+      <%= render 'property_applications/steps', current_step: 2, property_application: @property_application %>
+      <%= render "form", identifications: @identification %>
+      <%= link_to 'Cancel', tenant_index_property_application_employment_documents_path(@property_application) %>
+    <% end %>
+  <%# END NEW IDEA %>
+
 </main>

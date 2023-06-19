@@ -1,10 +1,14 @@
 class EmploymentDocumentsController < ApplicationController
-  before_action :set_property_application, only: %i[index new create]
+  before_action :set_property_application, only: %i[index tenant_index new create]
 
   def index
     # @employment_documents = EmploymentDocument.all
     @all = EmploymentDocument.all
     @e_ref = @all.where(property_application_id: @property_application)
+  end
+
+  def tenant_index
+    @employment_documents = EmploymentDocument.where(property_application: @property_application)
   end
 
   # GET /property_applications/:property_application_id/employment_documents/new
@@ -23,7 +27,7 @@ class EmploymentDocumentsController < ApplicationController
       # redirect_to  property_application_path(@property_application.id) -> this line path to property application
 
       # stuck here, cannot find the right id
-      redirect_to  employment_document_path(@employment_document.id), notice: "Employment document was successfully saved." # -> path to the show page for employment document
+      redirect_to  tenant_index_property_application_employment_documents_path(@property_application), notice: "Employment document was successfully saved." # -> path to the show page for employment document
     else
       render :new, status: :unprocessable_entity
     end

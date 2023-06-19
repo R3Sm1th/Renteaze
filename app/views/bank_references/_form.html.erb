@@ -5,9 +5,9 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :surname %>
-    <%= f.input :issue_date %>
-    <%= f.input :expiration_date %>
+    <%# <%= f.input :surname %>
+    <%= f.input :issue_date, order: [:day, :month, :year], discard_hour: true, discard_minute: true %>
+    <%# <%= f.input :expiration_date %>
     <%= f.input :pdf, as: :file %>
   </div>
 
