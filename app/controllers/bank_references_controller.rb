@@ -33,8 +33,8 @@ class BankReferencesController < ApplicationController
   # end
 
   # / CODE AFTER REPLICA
-    def create
-    @bank_reference = BankReference.new(bank_reference_params_params)
+  def create
+    @bank_reference = BankReference.new(bank_reference_params)
     @bank_reference.property_application = @application
 
     respond_to do |format|
@@ -56,16 +56,16 @@ class BankReferencesController < ApplicationController
   #   end
   # end
 
-    # PATCH/PUT /identification/1
-    def update
-      @bank_reference = BankReference.find(params[:id])
-      @application = @bank_reference.property_application
-      if @bank_reference.update(bank_reference_params)
-        redirect_to property_application_path(@application), notice: "Bank Reference was successfully updated."
-      else
-        render :edit, status: :unprocessable_entity
-      end
+  # PATCH/PUT /identification/1
+  def update
+    @bank_reference = BankReference.find(params[:id])
+    @application = @bank_reference.property_application
+    if @bank_reference.update(bank_reference_params)
+      redirect_to property_application_path(@application), notice: "Bank Reference was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
     end
+  end
 
   private
 

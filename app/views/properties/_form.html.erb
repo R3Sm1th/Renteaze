@@ -8,7 +8,7 @@
     <%= f.input :town %>
     <%= f.input :postcode %>
     <%= f.input :price_per_month %>
-    <%= f.input :availability_date %>
+    <%= f.input :availability_date, order: [:day, :month, :year], discard_hour: true, discard_minute: true %>
     <%= f.input :photo, as: :file %>
   </div>
 

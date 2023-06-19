@@ -1,8 +1,10 @@
 class EmploymentDocumentsController < ApplicationController
-  before_action :set_property_application, only: %i[new create]
+  before_action :set_property_application, only: %i[index new create]
 
   def index
-    @employment_documents = EmploymentDocument.all
+    # @employment_documents = EmploymentDocument.all
+    @all = EmploymentDocument.all
+    @e_ref = @all.where(property_application_id: @property_application)
   end
 
   # GET /property_applications/:property_application_id/employment_documents/new

@@ -1,11 +1,53 @@
-<h1>Index page for employment documents</h1>
-<% @employment_documents.each do |employment_document| %>
-  <div>
-    <ul>
-      <li>Company name: <strong><%= employment_document.company_name %></strong></li>
-      <p>Created date: </p> <strong><%= employment_document.date %></strong>
-      <p>Status: </p> <strong><%= employment_document.status %>
-      <%= link_to "Delete document", employment_document_path(employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-    </ul></strong>
+<div class="application-banner my-5">
+  <h1>Applicant Employment Documentation</h1>
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="col-8">
+      <div style="display: flex">
+        <div class="col-8">
+          <p>When reviewing employment references consider the following to ensure they are capable of managing ongoing commitments:</p>
+          <ol>
+            <li>Relevance: Assess the relevance of the reference</li>
+            <li>Relationship to the Candidate: Evaluate the nature of the relationship between the reference and the candidate. </li>
+            <li>Credibility and Trustworthiness.</li>
+            <li>Reliability and Contact Information: Ensure that the reference's contact information</li>
+          </ol>
+        </div>
+        <div class="col-4">
+        <img src="https://e7.pngegg.com/pngimages/4/921/png-clipart-application-for-employment-job-computer-icons-resume-others-template-text-thumbnail.png" style="width:100%">
+        </div>
+      </div>
+      <br>
+      <h4 style="color: #22577A;">Employment documents (if applicable) for review:</h4>
+      <br>
+      <div class="card-group">
+        <% @e_ref.each do |employment_document| %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Company name: <%= employment_document.company_name %></h5>
+            <p class="card-text"><%= employment_document.date %></p>
+          </div>
+            <%= link_to "Download PDF", cl_image_tag(employment_document.pdf.key, format: 'pdf', attachment: true), class: "card-img-bottom" %>
+            <%# <%= cl_image_tag id.pdf.key, class:"card-img-bottom" %>
+          <%if current_user == employment_document.property_application.user %>
+            <%= link_to "Delete document", employment_document_path(employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <% end %>
+          <%#= link_to "Delete ID", property_path(id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>
+
+<%# <h1>Index page for employment documents</h1>
+<% @employment_documents.each do |employment_document| %>
+  <%# <div>
+    <ul>
+      <li>Company name: <strong><%= employment_document.company_name %>
+      <%# <p>Created date: </p> <strong><%= employment_document.date %>
+      <%# <p>Status: </p> <strong><%= employment_document.status %>
+      <%# <%= link_to "Delete document", employment_document_path(employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    <%# </ul></strong> %>
+  <%# </div> %>
+<%# <% end %>
