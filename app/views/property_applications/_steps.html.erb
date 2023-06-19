@@ -4,13 +4,17 @@
   tenant_index_property_application_bank_references_path(property_application)
 ] %>
 
-<div class="d-flex">
+<div class="d-flex justify-space-between">
   <% 3.times do |i| %>
     <% index = i + 1 %>
     <% if current_step == index %>
-      <p style="color: green;">Step <%= index %></p>
+      <div class="btn btn-primary">
+        <p style="color: green;">Step <%= index %></p>
+      </div>
     <% else %>
-      <%= link_to "Step #{index}", steps_and_links[i] %>
+      <div class="btn btn-warning">
+        <%= link_to "Step #{index}", steps_and_links[i] %>
+      </div>
     <% end %>
   <% end %>
 </div>
