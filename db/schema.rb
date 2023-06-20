@@ -69,8 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
   end
 
   create_table "identifications", force: :cascade do |t|
