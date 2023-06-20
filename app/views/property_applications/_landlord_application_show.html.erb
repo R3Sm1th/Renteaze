@@ -41,8 +41,8 @@
         <p class="list-group-item">Review Applicant Banking References </p>
         <% if current_user == @property.user %>
           <div class="d-flex justify-content-between mt-2 mb-4 mx-auto" style="width: 200px">
-          <%= link_to "", accept_property_property_application_path(@property, @property_application), method: :patch, class:"fa-solid fa-check", "data-bs-toggle": "tooltip", title: "Accept"%>
-          <%= link_to "", decline_property_property_application_path(@property, @property_application), method: :patch, class:"fa-solid fa-ban", "data-bs-toggle": "tooltip", title: "Decline" %>
+          <%= link_to "", accept_property_property_application_path(@property, @property_application), data: {turbo_method: :patch}, class:"fa-solid fa-check", "data-bs-toggle": "tooltip", title: "Accept"%>
+          <%= link_to "", decline_property_property_application_path(@property, @property_application),   data: {turbo_method: :patch}, class:"fa-solid fa-ban", "data-bs-toggle": "tooltip", title: "Decline" %>
           </div>
         <% end %>
       </div>
