@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class BankReferencesController < ApplicationController
   # GET /property_applications/:property_application_id/bank_references/new
   def index
@@ -5,6 +7,11 @@ class BankReferencesController < ApplicationController
     @b_ref = @all.where(property_application_id: @application)
     # raise
     # @identifications = @all.where(property_application.user.email = current
+  end
+
+  def tenant_index
+    @application = PropertyApplication.find(params[:property_application_id])
+    @bank_refs = BankReference.where(property_application: @application)
   end
 
   def new
@@ -34,16 +41,14 @@ class BankReferencesController < ApplicationController
 
   # / CODE AFTER REPLICA
   def create
+    @application = PropertyApplication.find(params[:property_application_id])
     @bank_reference = BankReference.new(bank_reference_params)
     @bank_reference.property_application = @application
 
-    respond_to do |format|
-      if @bank_reference.save
-        format.html { redirect_to property_application_path(@property), notice: "Bank Reference page was successfully updated." }
-        format.turbo_stream
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @bank_reference.save
+      redirect_to tenant_index_property_application_bank_references_path(@application), notice: "Bank Reference page was successfully updated."
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -67,6 +72,15 @@ class BankReferencesController < ApplicationController
     end
   end
 
+  def download_pdf
+    @bank_reference = BankReference.find(params[:id])
+    blob = @bank_reference.pdf.attachment.blob
+    url = Cloudinary::Utils.cloudinary_url(blob.key)
+
+    # Send the file to the user
+    data = URI.open(url)
+    send_data data.read, type: blob.content_type, filename: blob.filename.to_s, disposition: 'attachment'
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.

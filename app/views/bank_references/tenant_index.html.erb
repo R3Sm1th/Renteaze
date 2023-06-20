@@ -1,0 +1,12 @@
+<%= turbo_frame_tag :application_step do %>
+  <%= render 'property_applications/steps', current_step: 3, property_application: @application %>
+  <p> Using the button and form below, please upload at least a bank statement from the past 3 months demostrating that you have sufficent fund for deposit and initial rental payment. </p>
+  <%= link_to "Upload Bank Statement",
+    new_property_application_bank_reference_path(@application),
+    class: "btn btn-lg btn-primary btn-banner m-0",
+    style: "width: 100%" %>
+  <br>
+  <% @bank_refs.each do |id| %>
+    <%= render 'bank_references/idb', id: id %>
+  <% end %>
+<% end %>

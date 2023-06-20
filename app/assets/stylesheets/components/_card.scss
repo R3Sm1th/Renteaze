@@ -10,8 +10,8 @@
   a {text-decoration: none;};
 }
 
-.card:hover {
-  filter: grayscale(100%); 
+.card:hover .card-img-top {
+  filter: grayscale(100%);
 }
 
 
@@ -23,9 +23,13 @@
 
 .fa-location-arrow,
 .fa-pen-to-square,
-.fa-trash,
+.fa-folder,
 .fa-magnifying-glass,
-.fa-check {
+.fa-check,
+.fa-trash,
+.fa-handshake-angle,
+.fa-check,
+.fa-ban {
   font-size: 25px;
   margin-left: 5px;
   text-decoration: none;
@@ -53,8 +57,15 @@
 
 .fa-location-arrow:hover,
 .fa-pen-to-square:hover,
-.fa-trash:hover,
+.fa-folder:hover,
 .fa-magnifying-glass:hover,
-.fa-check:hover  {
+.fa-check:hover,
+.fa-trash:hover,
+.fa-handshake-angle:hover,
+.fa-ban:hover   {
   color: #57CC99;
+}
+
+.edit-delete-icons {
+  margin-left: 66%;
 }

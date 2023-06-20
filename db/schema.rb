@@ -124,6 +124,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_145939) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "move_in_date"
     t.index ["property_id"], name: "index_property_applications_on_property_id"
     t.index ["user_id"], name: "index_property_applications_on_user_id"
   end

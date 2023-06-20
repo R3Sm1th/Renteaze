@@ -14,31 +14,32 @@
     <div class="progress mt-2 mb-2" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
       <div class="progress-bar" style="width: <%= progress.round(0) %>%"><%= progress.round(0) %></div>
     </div>
-    <p class="card-text">Application commenced: <%= property_application.user.created_at %> </p>
-    <p> Last activity: <%= property_application.user.updated_at %> </p>
+    <p class="card-text">Created on: <%= property_application.user.created_at.strftime("%d of %B, %Y") %> </p>
+    <p> Last modified: <%= property_application.user.updated_at.strftime("%d of %B, %Y") %> </p>
     <%# <a href="#" class="btn btn-primary">Mark as Approved</a> %>
   </div>
   <div class="card-footer text-muted d-flex justify-content-center ">
     <%#= link_to "Show this property application", application %>
 
-    <%= link_to "", property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5"%>
-    <%= link_to "", property_application_path(property_application),class:"fa-solid fa-trash mx-5", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
-    <%= link_to "", property_application_path(property_application), class:"fa-solid fa-check mx-5" %>
+    <%= link_to "", property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5", "data-bs-toggle": "tooltip", title: "View"%>
+    <%= link_to "", property_application_path(property_application),class:"fa-solid fa-folder mx-5", data: { turbo_method: :delete, turbo_confirm: "Are you sure?"}, "data-bs-toggle": "tooltip", title: "Archive application" %>
+    <%= link_to "", property_application_path(property_application), class:"fa-solid fa-check mx-5","data-bs-toggle": "tooltip", title: "Accept" %>
 
-      <%= link_to "Review progress", property_application_path(property_application) %>
+      <%# <%= link_to "Review progress", property_application_path(property_application) %>
     <%# buttons that the user will see as either agent or visitor %>
     <% if current_user.tenant? %>
-      <%= link_to "Delete application", property_application_path(property_application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
-      <%= link_to "Edit application", edit_property_application_path(property_application) %>
+      <%# <%= link_to "Delete application", property_application_path(property_application), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  %>
+      <%# <%= link_to "Edit application", edit_property_application_path(property_application) %>
       <% else %>
-      <%= link_to "Approve application", property_application_path(property_application) %>
+      <%# <%= link_to "Approve application", property_application_path(property_application) %>
     <% end %>
 
     <%# if the application is accepted, tenant can see a button to proceed to the finalizing page %>
     <% if property_application.status == "accepted" %>
-      <%= link_to "Proceed with application", property_property_application_finalize_index_path(@property) %>
+      <%= link_to "Proceed with application",  finalize_property_application_path(property_application)  %>
     <% end %>
 
   </div>
 </div>
 </div>
+ <%# property_property_applications_path(property) %>

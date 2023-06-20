@@ -13,18 +13,49 @@ Rails.application.routes.draw do
       end
     end
   end
-
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
 
   resources :property_applications, only: [:index, :show, :edit, :update, :destroy] do
-    resources :bank_references, only: [:index, :new, :show, :create, :edit]
-    resources :employment_documents, only: [:index, :new, :create, :edit ]
-    resources :identifications, only: [:index, :new, :create]
+    resources :bank_references, only: [:index, :new, :create] do
+      collection do
+        get :tenant_index
+      end
+    end
+    resources :employment_documents, only: [:index, :new, :create, :edit ] do
+      collection do
+        get :tenant_index
+      end
+    end
+    resources :identifications, only: [:index, :new, :create] do
+      collection do
+        get :tenant_index
+      end
+    end
     resources :messages
+<<<<<<< HEAD
     resources :property_application_finalize, only: [:index]
+=======
+    member do
+      get :finalize
+      patch :set_move_in
+    end
   end
-  resources :identifications, only: [:show, :edit, :update, :destroy]
-  resources :employment_documents, only:[:destroy, :show, :edit, :update]
+  resources :identifications, only: [:show, :edit, :update, :destroy] do
+    member do
+      get :download_pdf
+    end
+  end
+  resources :employment_documents, only:[:destroy, :show, :edit, :update] do
+    member do
+      get :download_pdf
+    end
+  end
+  resources :bank_references, only:[:destroy, :show, :edit, :update] do
+    member do
+      get :download_pdf
+    end
+>>>>>>> master
+  end
 end

@@ -27,13 +27,15 @@
 }
 
 .dashboard-content {
-  background-color: $light_blue;
   width: 66%;
+  margin-left: 15px;
 }
 
 .frame {
-  border: 1px solid black;
+  border: 1px solid rgb(125, 125, 125);
   background-color: white;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .frame-content {
@@ -46,7 +48,7 @@
 
 .image-content {
   margin-left: 10px;
-  padding: 5px;
+  max-height: 100%;
 }
 .ll-dashboard-content {
   flex-grow: 1;
