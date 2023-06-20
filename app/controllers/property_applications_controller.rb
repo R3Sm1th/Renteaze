@@ -70,6 +70,9 @@ class PropertyApplicationsController < ApplicationController
     @property_application.property = @property
 
     if @property_application.save
+      @chatroom = Chatroom.new(property_application: @property_application)
+      @chatroom.save
+
       redirect_to property_application_path(@property_application)
     else
       render :new, status: :unprocessable_entity

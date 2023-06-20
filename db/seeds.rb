@@ -19,6 +19,7 @@ User.destroy_all
 user1 = User.new
 user1.first_name = "Russell"
 user1.surname = "Smith"
+user1.nickname = "Russ"
 user1.email = "russell@gmail.com"
 user1.password = "ilovemyteam"
 user1.contact_number = "07447862458"
@@ -29,6 +30,7 @@ user1.save!
 user2 = User.new
 user2.first_name = "Clement"
 user2.surname = "Carr"
+user2.nickname = "Clementinoo"
 user2.email = "clementino@gmail.com"
 user2.password = "ilovemyteam"
 user2.contact_number = "07447432453"

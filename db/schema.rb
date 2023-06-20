@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_145939) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
     t.index ["property_application_id"], name: "index_bank_references_on_property_application_id"
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "property_application_id"
+    t.index ["property_application_id"], name: "index_chatrooms_on_property_application_id"
+  end
+
   create_table "employment_documents", force: :cascade do |t|
     t.string "company_name"
     t.datetime "date"
@@ -69,8 +77,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
   end
 
   create_table "identifications", force: :cascade do |t|
@@ -87,9 +93,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
   create_table "messages", force: :cascade do |t|
     t.string "message"
     t.bigint "user_id", null: false
-    t.bigint "property_application_id", null: false
+    t.bigint "property_application_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "chatroom_id"
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["property_application_id"], name: "index_messages_on_property_application_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -134,6 +142,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "nickname"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -141,8 +150,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_085727) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bank_references", "property_applications"
+  add_foreign_key "chatrooms", "property_applications"
   add_foreign_key "employment_documents", "property_applications"
   add_foreign_key "identifications", "property_applications"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "property_applications"
   add_foreign_key "messages", "users"
   add_foreign_key "properties", "users"

@@ -1,12 +1,10 @@
-<h1>Here is the beatiful tenant page</h1>
-
 <%# responsive design, compatible for mobile and desktop %>
 <div class="container">
   <div class="row">
 
     <%# chatbox section on the left hand side%>
     <div class="col-12 col-lg-8">
-    <p> Insert chatbox here</p>
+    <%= render "chatbox", property_application: @property_application, message: @message %>
     </div>
 
     <%# geomap section on the right hand side %>
