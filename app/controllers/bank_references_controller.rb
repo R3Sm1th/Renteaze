@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class BankReferencesController < ApplicationController
   # GET /property_applications/:property_application_id/bank_references/new
   def index
@@ -70,6 +72,15 @@ class BankReferencesController < ApplicationController
     end
   end
 
+  def download_pdf
+    @bank_reference = BankReference.find(params[:id])
+    blob = @bank_reference.pdf.attachment.blob
+    url = Cloudinary::Utils.cloudinary_url(blob.key)
+
+    # Send the file to the user
+    data = URI.open(url)
+    send_data data.read, type: blob.content_type, filename: blob.filename.to_s, disposition: 'attachment'
+  end
   private
 
   # Use callbacks to share common setup or constraints between actions.

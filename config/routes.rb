@@ -36,7 +36,19 @@ Rails.application.routes.draw do
       patch :set_move_in
     end
   end
-  resources :identifications, only: [:show, :edit, :update, :destroy]
-  resources :employment_documents, only:[:destroy, :show, :edit, :update]
-  resources :bank_references, only:[:destroy, :show, :edit, :update]
+  resources :identifications, only: [:show, :edit, :update, :destroy] do
+    member do
+      get :download_pdf
+    end
+  end
+  resources :employment_documents, only:[:destroy, :show, :edit, :update] do
+    member do
+      get :download_pdf
+    end
+  end
+  resources :bank_references, only:[:destroy, :show, :edit, :update] do
+    member do
+      get :download_pdf
+    end
+  end
 end

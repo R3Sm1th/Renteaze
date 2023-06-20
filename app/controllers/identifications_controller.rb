@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class IdentificationsController < ApplicationController
   before_action :set_property_application, only: %i[ index tenant_index new create]
 
@@ -26,13 +28,12 @@ class IdentificationsController < ApplicationController
     @identification = Identification.new(identification_params)
     @identification.property_application = @application
 
-    respond_to do |format|
-      if @identification.save
-        format.html { redirect_to property_application_path(@property), notice: "Identification page was successfully updated." }
-        format.turbo_stream
-      else
-        render :new, status: :unprocessable_entity
-      end
+    # respond_to do |format|
+    if @identification.save!
+      redirect_to property_application_path(@property), notice: "Identification page was successfully updated."
+      # format.turbo_stream
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -53,7 +54,17 @@ class IdentificationsController < ApplicationController
     end
   end
 
-private
+  def download_pdf
+    @identification = Identification.find(params[:id])
+    blob = @identification.pdf.attachment.blob
+    url = Cloudinary::Utils.cloudinary_url(blob.key)
+
+    # Send the file to the user
+    data = URI.open(url)
+    send_data data.read, type: blob.content_type, filename: blob.filename.to_s, disposition: 'attachment'
+  end
+
+  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_property_application

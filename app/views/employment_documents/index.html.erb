@@ -27,12 +27,11 @@
             <h5 class="card-title">Company name: <%= employment_document.company_name %></h5>
             <p class="card-text"> Issued on :<%= employment_document.date.strftime("%d/%m/%Y") %></p>
           </div>
-            <%= link_to "Download PDF", cl_image_tag(employment_document.pdf.key, format: 'pdf', attachment: true), class: "card-img-bottom" %>
-            <%= cl_image_tag(employment_document.pdf.key,
-                    format: 'pdf',
-                    attachment: true,
-                    class: "card-img-bottom"
-                  ) %>
+            <%# new code %>
+            <%= link_to "Download", download_pdf_employment_document_path(employment_document) %>
+            <%# this one works, below for preview of image.... not pdf yet  %>
+            <%= cl_image_tag employment_document.pdf.key, class:"card-img-bottom" %>
+
             <%# <%= cl_image_tag id.pdf.key, class:"card-img-bottom" %>
           <%if current_user == employment_document.property_application.user %>
             <%= link_to "Delete document", employment_document_path(employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
