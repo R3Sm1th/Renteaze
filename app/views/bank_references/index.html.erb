@@ -1,21 +1,45 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-<h1>Identifications</h1>
-  <div>
-    <div class="card-group">
-      <% @b_ref.each do |b_ref| %>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title"><%= b_ref.name %></h5>
-          <p class="card-text">Issued on :<%= b_ref.issue_date.strftime("%d/%m/%Y") %></p>
-          <p class="card-text">Expires on :<small class="text-muted"><%= b_ref.expiration_date %></small></p>
+<div class="application-banner my-5">
+  <h1>Applicant Banking Reference</h1>
+</div>
+<div style="display: flex; justify-content: center; align-items: center;">
+  <div class="col-8">
+      <div style="display: flex">
+        <div class="col-8">
+          <p>It's important to have sight of an applicants banking reference to they have financial standing for ongoing payments and to protect your clients' interests. Here are some key things to look out for:</p>
+          <ol>
+            <li>Financial Stability</li>
+            <li>Verification of Identity: A bank reference helps verify the tenant's identity.</li>
+            <li>Debt History: A bank reference may reveal any outstanding debts or financial issues. </li>
+            <li>Confirmation of Income: A bank reference can provide evidence of a tenant's income. </li>
+            <li>Fraud Prevention: Requesting a bank reference can help mitigate the risk of rental fraud. </li>
+          </ol>
         </div>
-        <%= cl_image_tag b_ref.pdf.key, class:"card-img-bottom" %>
-        <%= link_to "Amend Bank Reference", edit_property_application_bank_reference_path(b_ref.property_application, b_ref.id), class:"card-link" %>
-        <%#= link_to "Delete Bank Reference", property_path(b_ref), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <div class="col-4">
+        <img src="https://png.pngtree.com/png-vector/20190227/ourmid/pngtree-vector-bank-icon-png-image_708538.jpg" style="width:100%">
+        </div>
       </div>
-      <% end %>
+      <br>
+      <h4 style="color: #22577A;">Documents available for review:</h4>
+      <br>
+      <div class="card-group">
+        <% @b_ref.each do |b_ref| %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= b_ref.name %></h5>
+            <% if b_ref.issue_date.present? %>
+              <p class="card-text">Issued on :<%= b_ref.issue_date.strftime("%d/%m/%Y") %></p>
+            <% end %>
+            <%= link_to "Download", download_pdf_bank_reference_path(b_ref) %>
+            <%# this one works, below for preview of image  %>
+            <%= cl_image_tag b_ref.pdf.key, class:"card-img-bottom" %>
+
+
+          <%#= link_to "Delete ID", property_path(id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

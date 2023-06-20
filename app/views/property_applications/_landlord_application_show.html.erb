@@ -38,7 +38,7 @@
       <div class="list-group list-group-flush text-center">
         <p class="list-group-item"><%= link_to "Review Applicant Identification Documents",  property_application_identifications_path(params[:id]) %></p>
         <p class="list-group-item"><%= link_to "Review Applicant Employment Documents", property_application_employment_documents_path(@property_application.id) %></p>
-        <p class="list-group-item">Review Applicant Banking References </p>
+        <p class="list-group-item"><%= link_to "Review Applicant Banking References",  property_application_bank_references_path(params[:id]) %></p>
         <% if current_user == @property.user %>
           <div class="d-flex justify-content-between mt-2 mb-4 mx-auto" style="width: 200px">
           <%= link_to "", accept_property_property_application_path(@property, @property_application), data: {turbo_method: :patch}, class:"fa-solid fa-check", "data-bs-toggle": "tooltip", title: "Accept"%>
