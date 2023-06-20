@@ -27,7 +27,9 @@
 .fa-magnifying-glass,
 .fa-check,
 .fa-trash,
-.fa-handshake-angle {
+.fa-handshake-angle,
+.fa-check,
+.fa-ban {
   font-size: 25px;
   margin-left: 5px;
   text-decoration: none;
@@ -59,7 +61,8 @@
 .fa-magnifying-glass:hover,
 .fa-check:hover,
 .fa-trash:hover,
-.fa-handshake-angle:hover {
+.fa-handshake-angle:hover,
+.fa-ban:hover   {
   color: #57CC99;
 }
 
