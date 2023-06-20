@@ -3,9 +3,7 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="flatpickr"
 export default class extends Controller {
-  static targets = ["moveInDate"]
   connect() {
-    flatpickr(this.moveInDateTarget, {})
-
+    flatpickr(this.element, {})
   }
 }
