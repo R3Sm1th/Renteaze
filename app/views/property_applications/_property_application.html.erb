@@ -36,9 +36,10 @@
 
     <%# if the application is accepted, tenant can see a button to proceed to the finalizing page %>
     <% if property_application.status == "accepted" %>
-      <%= link_to "Proceed with application", property_property_application_finalize_index_path(@property) %>
+      <%= link_to "Proceed with application",  finalize_property_application_path(property_application)  %>
     <% end %>
 
   </div>
 </div>
 </div>
+ <%# property_property_applications_path(property) %>
