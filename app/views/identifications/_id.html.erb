@@ -3,11 +3,11 @@
     <div class="frame-content">
       <div class="text-content">
         <p><strong>Name of ID Document:</strong> <%= id.name %></p>
-        <p><strong>Issue Date:</strong> <%= id.issue_date %></p>
-        <p><strong>Expiry Date:</strong> <%= id.expiration_date %></p>
+        <p><strong>Issued on :</strong> <%= id.issue_date.strftime("%d/%m/%Y") %></p>
+        <p><strong>Expires on :</strong> <%= id.expiration_date.strftime("%d/%m/%Y") %></p>
         <%#= link_to "Delete", identification_path(id.property_application), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
-          <%= link_to "Edit", edit_identification_path(id) %>
+          <%= link_to "", edit_identification_path(id), class:"fa-solid fa-pen-to-square","data-bs-toggle": "tooltip", title: "Edit"%>
       </div>
       <div class="image-content">
         <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},
