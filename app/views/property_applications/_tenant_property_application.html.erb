@@ -2,7 +2,7 @@
   <ul class="list-group list-group-flush">
      <li class="list-group-item"><%= property_application.property.address %></p>
      <li class="list-group-item"><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
-     <li class="list-group-item"><%= link_to '', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5" %>
+     <li class="list-group-item"><%= link_to 'view', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5" %>
        <% if property_application.status == "accepted" %>
          <%= link_to "Proceed with application", finalize_property_application_path(property_application) %>
        <% end %>

@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class EmploymentDocumentsController < ApplicationController
   before_action :set_property_application, only: %i[index tenant_index new create]
 
@@ -58,6 +60,16 @@ class EmploymentDocumentsController < ApplicationController
     @property_application = @employment_document.property_application
     @employment_document.destroy
     redirect_to property_application_path(@property_application.id), notice: "Employment document was successfully destroyed.", status: :see_other
+  end
+
+  def download_pdf
+    @employment_document = EmploymentDocument.find(params[:id])
+    blob = @employment_document.pdf.attachment.blob
+    url = Cloudinary::Utils.cloudinary_url(blob.key)
+
+    # Send the file to the user
+    data = URI.open(url)
+    send_data data.read, type: blob.content_type, filename: blob.filename.to_s, disposition: 'attachment'
   end
 
   private
