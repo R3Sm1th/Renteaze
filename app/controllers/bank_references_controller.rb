@@ -3,6 +3,7 @@ require 'open-uri'
 class BankReferencesController < ApplicationController
   # GET /property_applications/:property_application_id/bank_references/new
   def index
+    @application = PropertyApplication.find(params[:property_application_id])
     @all = BankReference.all
     @b_ref = @all.where(property_application_id: @application)
     # raise
