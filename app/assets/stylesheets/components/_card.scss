@@ -26,7 +26,9 @@
 .fa-folder,
 .fa-magnifying-glass,
 .fa-check,
-.fa-trash {
+.fa-trash,
+.fa-check,
+.fa-ban {
   font-size: 25px;
   margin-left: 5px;
   text-decoration: none;
@@ -57,7 +59,8 @@
 .fa-folder:hover,
 .fa-magnifying-glass:hover,
 .fa-check:hover,
-.fa-trash:hover  {
+.fa-trash:hover,
+.fa-ban:hover   {
   color: #57CC99;
 }
 
