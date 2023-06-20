@@ -25,7 +25,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Company name: <%= employment_document.company_name %></h5>
-            <p class="card-text"><%= employment_document.date %></p>
+            <p class="card-text"> Issued on :<%= employment_document.date.strftime("%d/%m/%Y") %></p>
           </div>
             <%= link_to "Download PDF", cl_image_tag(employment_document.pdf.key, format: 'pdf', attachment: true), class: "card-img-bottom" %>
             <%= cl_image_tag(employment_document.pdf.key,

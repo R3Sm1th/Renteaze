@@ -3,10 +3,10 @@
     <div class="frame-content">
       <div class="text-content">
         <p><strong>Company Name:</strong> <%= id.company_name %></p>
-        <p><strong>Issue Date:</strong> <%= id.date %></p>
+        <p><strong>Issued on :</strong> <%= id.date.strftime("%d/%m/%Y") %></p>
         <%#= link_to "Delete", identification_path(id.property_application), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
-          <%= link_to "Edit", edit_employment_document_path(id) %>
+          <%= link_to "", edit_employment_document_path(id), class:"fa-solid fa-pen-to-square","data-bs-toggle": "tooltip", title: "Edit"%>
       </div>
       <div class="image-content">
         <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>350, :crop=>"scale"},

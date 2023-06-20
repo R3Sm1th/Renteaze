@@ -1,6 +1,6 @@
 <p>Review your document details: </p>
 <li><p>Company name: <%= @employment_document.company_name %></p></li>
-<li><p>Created date: <%= @employment_document.date %></p></li>
+<li><p>Created date: <%= @employment_document.date.strftime("%d/%m/%Y") %></p></li>
 <li>document status: <%= @employment_document.status %></p></li>
 <%= link_to "Edit document", edit_employment_document_path(@employment_document.id)%>
 <%= link_to "Delete document", employment_document_path(@employment_document.id), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>

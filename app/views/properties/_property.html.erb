@@ -9,8 +9,8 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">£ <%= property.price_per_month %> pcm</li>
-        <% date = property.availability_date < DateTime.now ? " Immediately" : property.availability_date.strftime('%m/%d/%Y')%>
-        <li class="list-group-item">Available <%= date %></li>
+        <% date = property.availability_date < DateTime.now ? " Immediately" : property.availability_date.strftime("%d of %B, %Y")%>
+        <li class="list-group-item">Available on : <%= date %></li>
         <li class="list-group-item"><%= property.postcode %></li>
       </ul>
       <div class="card-body edit-delete-icons">

@@ -23,9 +23,10 @@
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><%= @property_application.user.first_name %> <%= @property_application.user.surname %></li>
         <li class="list-group-item">£<%= @property.price_per_month %> pcm</li>
-        <li class="list-group-item"><%= @property.availability_date %></li>
+        <li class="list-group-item"> Available on : <%= @property.availability_date.strftime("%d/%m/%Y") %></li>
         <li class="list-group-item"><%= @property.postcode %></li>
         <li class="list-group-item">12 month(s) only</li>
+        <%# <li class="list-group-item">Back to Building<% a href= property_property_applications_path(property), class="btn btn-primary d-block mx-auto " style="width: 150px;"> "Back to building"</a> %>
       </ul>
     </div>
   </div>
