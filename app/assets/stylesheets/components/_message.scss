@@ -1,0 +1,27 @@
+// To style the wrapping div
+.messages {
+  width: 600px
+}
+
+.message-row {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+// To style the message itself
+.sender-style, .receiver-style {
+  width: 70%;
+  max-width: 400px;
+  border-radius: 4px;
+  padding: 8px;
+  min-height: 80px;
+}
+
+// front end person can decide the color code for the chat box, I'll leave it as it is for now
+.sender-style {
+  background-color: lightcoral;
+}
+
+.receiver-style {
+  background-color: lightblue;
+}

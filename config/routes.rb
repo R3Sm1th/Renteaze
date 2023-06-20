@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 
   resources :property_applications, only: [:index, :show, :edit, :update, :destroy] do
     resources :bank_references, only: [:index, :new, :create] do
@@ -31,6 +34,9 @@ Rails.application.routes.draw do
       end
     end
     resources :messages
+<<<<<<< HEAD
+    resources :property_application_finalize, only: [:index]
+=======
     member do
       get :finalize
       patch :set_move_in
@@ -50,5 +56,6 @@ Rails.application.routes.draw do
     member do
       get :download_pdf
     end
+>>>>>>> master
   end
 end

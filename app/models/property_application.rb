@@ -4,4 +4,5 @@ class PropertyApplication < ApplicationRecord
   has_many :identifications, dependent: :destroy
   has_many :bank_references, dependent: :destroy
   has_many :employment_documents, dependent: :destroy
+  has_one :chatroom, dependent: :destroy
 end

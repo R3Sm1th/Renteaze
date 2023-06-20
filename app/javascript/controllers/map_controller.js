@@ -46,7 +46,7 @@ export default class extends Controller {
     // when we extend the bounds we are including all the markers in the bound, so you can see all the markers in one view
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
     // after bounds, we are passing options to customize the view
-    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 450 })
+    this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 100 })
   }
 
 }
