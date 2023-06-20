@@ -2,7 +2,7 @@
 <%= turbo_frame_tag dom_id(@employment_document) do %>
   <%= simple_form_for [@property_application, @employment_document] do |f| %>
     <%= f.input :company_name %>
-    <%= f.input :date %>
+    <%= f.input :date, as: :string, input_html: { data: { controller: 'flatpickr' } }%>
     <%= f.input :status %>
     <%= f.input :pdf, as: :file %>
     <%= f.submit %>

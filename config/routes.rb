@@ -34,9 +34,8 @@ Rails.application.routes.draw do
       end
     end
     resources :messages
-<<<<<<< HEAD
     resources :property_application_finalize, only: [:index]
-=======
+
     member do
       get :finalize
       patch :set_move_in
@@ -56,6 +55,5 @@ Rails.application.routes.draw do
     member do
       get :download_pdf
     end
->>>>>>> master
   end
 end

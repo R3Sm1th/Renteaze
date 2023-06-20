@@ -108,6 +108,15 @@ class PropertyApplicationsController < ApplicationController
   def finalize
     @property_application = PropertyApplication.find(params[:id])
     @property = @property_application.property
+    @message = Message.new
+    @markers = if @property_application.property.geocoded?
+      [{
+        lat: @property_application.property.latitude,
+        lng: @property_application.property.longitude,
+        # render the info popup window via partial for info window
+        info_window_html: render_to_string(partial: "property_application_finalize/info_window", locals: { property: @property_application.property }) # this local is saying the view partials contains the local -> property, which is iterated in this page
+      }]
+    end
   end
 
   def set_move_in

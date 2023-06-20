@@ -4,7 +4,7 @@
 
     <%# chatbox section on the left hand side%>
     <div class="col-12 col-lg-8">
-    <%= render "chatbox", property_application: @property_application, message: @message %>
+    <%= render "property_application_finalize/chatbox", property_application: @property_application, message: @message %>
     </div>
 
     <%= simple_form_for(@property_application, url: set_move_in_property_application_path(@property_application) ) do |f| %>

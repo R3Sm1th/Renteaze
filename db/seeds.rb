@@ -121,24 +121,32 @@ application1.status = "Pending"
 application1.property = property1
 application1.user = user2
 application1.save!
+chatroom = Chatroom.new(property_application: application1)
+chatroom.save
 
 application2 = PropertyApplication.new
 application2.status = "Pending"
 application2.property = property1
 application2.user = user3
 application2.save!
+chatroom = Chatroom.new(property_application: application2)
+chatroom.save
 
 application3 = PropertyApplication.new
 application3.status = "Pending"
 application3.property = property2
 application3.user = user2
 application3.save!
+chatroom = Chatroom.new(property_application: application3)
+chatroom.save
 
 application4 = PropertyApplication.new
 application4.status = "Pending"
 application4.property = property1
 application4.user = user4
 application4.save!
+chatroom = Chatroom.new(property_application: application4)
+chatroom.save
 
 id1 = Identification.new
 id1.name = "Scan of Passport (Clement)"
