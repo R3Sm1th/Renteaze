@@ -5,8 +5,8 @@
     <div class="frame-content">
       <div class="text-content">
         <p><strong>ID Name:</strong> <%= @identification.name %></p>
-        <p><strong>Issue Date:</strong> <%= @identification.issue_date %></p>
-        <p><strong>Expiry Date:</strong> <%= @identification.expiration_date %></p>
+        <p><strong>Issue Date</strong> <%= @identification.issue_date %></p>
+        <p><strong>Expiry Date</strong> <%= @identification.expiration_date %></p>
         <%= link_to "Delete", identification_path(@identification), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
           <%= render "form", identification: @identification %>

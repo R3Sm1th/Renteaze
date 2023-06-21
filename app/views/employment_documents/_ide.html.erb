@@ -4,7 +4,7 @@
       <div class="text-content">
         <p><strong>Company Name:</strong> <%= id.company_name %></p>
         <% if id.date.present? %>
-          <p><strong>Issued on:</strong> <%= id.date.strftime("%d/%m/%Y") %></p>
+          <p><strong>Issued on</strong> <%= id.date.strftime("%d/%m/%Y") %></p>
         <% end %>
         <%#= link_to "Delete", identification_path(id.property_application), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 
