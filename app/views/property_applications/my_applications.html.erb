@@ -1,13 +1,20 @@
-<div class="text-center my-3 asset-banner">
-  <h1> My Applications </h1>
+
+<div class="asset-banner my-5">
+  <h1>My Applications</h1>
 </div>
-<div class="dashboard  container d-flex justify-content-center my-5" >
-    <div class="d-flex justify-content-center">
-      <div class="my-3" style="margin-right: 35px, margin-left: 35px">
-            <% @applications.each do |property_application| %>
-              <%= render 'tenant_property_application', property_application: property_application %>
-            <% end %>
+
+<div class="dashboard  container d-flex justify-content-center my-5" style="width auto" >
+  <% @applications.each do |property_application| %>
+    <div class="card-header" style="width: 600px">
+      <div class="border p-2" >
+            <%# display grid or flex to reflect figma %>
+            <%# can this be full height 100%vh and sticky? %>
+          <div class="card" style="width: 580px">
+            <% property = property_application.property %>
+            <%= cl_image_tag property.photo.key, width:300, class:"card-img-top"%>
+            <%= render 'tenant_property_application', property_application: property_application %>
           </div>
-        </div>
+      </div>
     </div>
+  <% end %>
 </div>
