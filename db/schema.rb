@@ -68,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_145939) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "property_application_id", null: false
+    t.bigint "property_application_id"
     t.index ["property_application_id"], name: "index_employment_documents_on_property_application_id"
   end
 
