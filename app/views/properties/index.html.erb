@@ -1,9 +1,9 @@
-<div class="container index-titles">
+<div class="container index-titles my-5">
   <h1>Welcome Back, <%= current_user.first_name %></h1>
 </div>
 
 
-<div class="text-center my-3" style="background-color: #80ED99">
+<div class="text-center my-3 asset-banner">
     <h2> Property Listings Dashboard </h2>
     <p> You have <%= @properties.count%> listings </p>
     <%# <%= link_to "New property", new_property_path %>
@@ -33,7 +33,7 @@
           <%# Loop through and display each application %>
           <%# <% property.property_applications.where(user: current_user).each do |pa| %>
             <%# <%= render 'property_applications/property_application', property_application: pa %>
-          <%# <% end %> 
+          <%# <% end %>
         <% end %>
     </div>
   </div>

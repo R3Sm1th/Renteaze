@@ -1,4 +1,4 @@
-<div class="application-banner my-5">
+<div class="asset-banner my-5">
   <h1>Applicant Employment Documentation</h1>
 </div>
 <div style="display: flex; justify-content: center; align-items: center;">
@@ -25,7 +25,9 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Company name: <%= employment_document.company_name %></h5>
-            <p class="card-text"> Issued on :<%= employment_document.date.strftime("%d/%m/%Y") %></p>
+            <% if employment_document.date.present? %>
+              <p class="card-text"> Issued on :<%= employment_document.date.strftime("%d/%m/%Y") %></p>
+            <% end %>
           </div>
             <%# new code %>
             <%= link_to "Download", download_pdf_employment_document_path(employment_document) %>
