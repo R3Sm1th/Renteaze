@@ -1,0 +1,36 @@
+.btn-tenant {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #22577A;
+  text-align: center;
+  line-height: 43px;
+  color: white;
+  text-decoration: none;
+  border: 1px solid #000000;
+  margin: auto;
+
+}
+
+.btn-tenant:hover {
+  background-color: #206c9f;
+  color: white;
+  border: 1px solid #000000;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 43px;
+  text-decoration: none;
+}
+
+.roundbtn {
+  text-decoration: none;
+  color: white;
+}
+
+.step-container {
+display: flex;
+justify-content: space-between !important;
+}
