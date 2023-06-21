@@ -72,6 +72,8 @@ class PropertyApplicationsController < ApplicationController
     if @property_application.save
       @chatroom = Chatroom.new(property_application: @property_application)
       @chatroom.save
+      @message = Message.new(message: "Let's get started!")
+      @message.chatroom = @chatroom.id
 
       redirect_to property_application_path(@property_application)
     else

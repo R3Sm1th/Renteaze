@@ -79,14 +79,14 @@ property3 = Property.new(property3)
 property3.photo.attach(io: file, filename: "3.01_jygyrj.jpg", content_type: "image/jpg")
 property3.save
 
-property4 = {number: 5, street: "Congleton Road", town: "Alderley Edge", postcode: "SK97AQ", price_per_month: 2400, availability_date: Date.new(2023,9,16), user: user1}
+property4 = {number: 5, street: "Congleton Road", town: "Alderley Edge", postcode: "SK97AQ", price_per_month: 2400, availability_date: Date.new(2023,3,16), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686661751/4-01_crraym.jpg")
 property4 = Property.new(property4)
 property4.photo.attach(io: file, filename: "4-01_crraym.jpg", content_type: "image/jpg")
 property4.save
 
-property5 = {number: 2, street: "Stanhope Road", town: "Bowdon", postcode: "WA143LA", price_per_month: 1500, availability_date: Date.new(2023,8,6), user: user1}
+property5 = {number: 2, street: "Stanhope Road", town: "Bowdon", postcode: "WA143LA", price_per_month: 1500, availability_date: Date.new(2023,5,6), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686661975/5-01_uwrs5s.jpg")
 property5 = Property.new(property5)
@@ -107,7 +107,7 @@ property7 = Property.new(property7)
 property7.photo.attach(io: file, filename: "7-01_qqivmj.jpg", content_type: "image/jpg")
 property7.save
 
-property8 = {number: 34, street: "Carrwood", town: "Hale Barns", postcode: "WA150EW", price_per_month: 2350, availability_date: Date.new(2023,8,17), user: user1}
+property8 = {number: 34, street: "Carrwood", town: "Hale Barns", postcode: "WA150EW", price_per_month: 2350, availability_date: Date.new(2023,6,17), user: user1}
 
 file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
 property8 = Property.new(property8)

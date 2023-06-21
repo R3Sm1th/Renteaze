@@ -1,20 +1,25 @@
 <%# this section to stylise header %>
 <div class="asset-banner my-5">
-  <h1> Almost there! <%=current_user.first_name %></h1>
-  <p> Confirm your move-in date with your landlord</p>
+  <h1> Almost there, <%=current_user.first_name %></h1>
+  <% if current_user.tenant? %>
+    <p> Confirm your move-in date with your landlord</p>
+  <% else %>
+    <p> Confirm your move-in date with your tenant</p>
+  <% end %>
   <p> Address: <%= @property_application.property.address %></p>
-  <p> Move-in date <%= @property_application.move_in_date || ("tbd" if @property_application.move_in_date.nil?) %></p>
+  
+  <p style = "font-size: 20px;"> Move-in date: <strong><%= @property_application.move_in_date || ("TBD" if @property_application.move_in_date.nil?) %></strong></p>
 </div>
 
 <%# Responsive design, compatible for mobile and desktop %>
 <div class="container">
   <div class="row">
     <%# chatbox section on the left hand side%>
-    <div class="col-12 col-lg-7">
+    <div class="col-12 col-lg-6">
       <%= render "property_application_finalize/chatbox", property_application: @property_application, message: @message %>
     </div>
     <%# flatpickr + geomap section on the right hand side %>
-    <div class="col-12 col-lg-5">
+    <div class="col-12 col-lg-6">
       <%# flatpickr here for move-in date submission, apply confirm logic here for landlord %>
       <% if current_user.agent %>
         <div>
