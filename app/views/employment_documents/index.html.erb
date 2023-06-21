@@ -26,7 +26,7 @@
           <div class="card-body">
             <h5 class="card-title">Company name: <%= employment_document.company_name %></h5>
             <% if employment_document.date.present? %>
-              <p class="card-text"> Issued on :<%= employment_document.date.strftime("%d/%m/%Y") %></p>
+              <p class="card-text"> Issued on <%= employment_document.date.strftime("%d/%m/%Y") %></p>
             <% end %>
           </div>
             <%# new code %>

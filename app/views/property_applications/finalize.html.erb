@@ -3,7 +3,7 @@
   <h1> Almost there! <%=current_user.first_name %></h1>
   <p> Confirm your move-in date with your landlord</p>
   <p> Address: <%= @property_application.property.address %></p>
-  <p> Move-in date: <%= @property_application.move_in_date || ("tbd" if @property_application.move_in_date.nil?) %></p>
+  <p> Move-in date <%= @property_application.move_in_date || ("tbd" if @property_application.move_in_date.nil?) %></p>
 </div>
 
 <%# Responsive design, compatible for mobile and desktop %>
