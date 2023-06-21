@@ -1,23 +1,36 @@
-<%# responsive design, compatible for mobile and desktop %>
+<%# this section to stylise header %>
+<div class="asset-banner my-5">
+  <h1> Almost there! <%=current_user.first_name %></h1>
+  <p> Confirm your move-in date with your landlord</p>
+  <p> Address: <%= @property_application.property.address %></p>
+  <p> Move-in date: <%= @property_application.move_in_date || ("tbd" if @property_application.move_in_date.nil?) %></p>
+</div>
+
+<%# Responsive design, compatible for mobile and desktop %>
 <div class="container">
   <div class="row">
-
     <%# chatbox section on the left hand side%>
-    <div class="col-12 col-lg-8">
-    <%= render "property_application_finalize/chatbox", property_application: @property_application, message: @message %>
+    <div class="col-12 col-lg-7">
+      <%= render "property_application_finalize/chatbox", property_application: @property_application, message: @message %>
     </div>
+    <%# flatpickr + geomap section on the right hand side %>
+    <div class="col-12 col-lg-5">
+      <%# flatpickr here for move-in date submission, apply confirm logic here for landlord %>
+      <% if current_user.agent %>
+        <div>
+          <%= simple_form_for(@property_application, url: set_move_in_property_application_path(@property_application) ) do |f| %>
+          <%= f.error_notification %>
+          <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-    <%= simple_form_for(@property_application, url: set_move_in_property_application_path(@property_application) ) do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-      <%= f.input :move_in_date, as: :string, input_html: { data: { controller: 'flatpickr' } }%>
-      <%= f.button :submit %>
-    <% end %>
-
-    <%# geomap section on the right hand side %>
-    <div class="col-12 col-lg-4">
-      <div style="width: 700px; height: 600px;"
+          <%= f.input :move_in_date, as: :string, input_html: { data: { controller: 'flatpickr' } }%>
+          <%= f.submit "Submit", class: "btn btn-primary"%>
+          <% end %>
+        </div>
+      <% end %>
+      <%# geomap here %>
+      <br>
+      <div class = "card-map"
+        style="width: 600px; height: 450px;"
         data-controller="map"
         data-map-markers-value="<%= @markers.to_json %>"
         <%# passing api key here so we can use it in our JVscript controller %>

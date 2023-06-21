@@ -2,15 +2,15 @@
 data-controller="chatroom-subscription"
 data-chatroom-subscription-chatroom-id-value="<%= property_application.chatroom.id %>"
 data-chatroom-subscription-current-user-id-value="<%= current_user.id %>">
-  <h2><%= property_application.property.address %></h2>
 
   <div class = "messages" data-chatroom-subscription-target="messages">
+  <br>
     <% property_application.chatroom.messages.each do |msg| %>
       <%# the two divs are message styling, allocating receiver and sender to the left and right %>
       <div class="message-row d-flex <%= msg.sender?(current_user) ? 'justify-content-end' : 'justify-content-start' %>">
-      <div class="<%= msg.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
-      <%= render "messages/message", message: msg %>
-      </div>
+        <div class="<%= msg.sender?(current_user) ? 'sender-style' : 'receiver-style' %>">
+          <%= render "messages/message", message: msg %>
+        </div>
       </div>
     <% end %>
   </div>

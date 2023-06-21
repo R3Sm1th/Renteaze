@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :property_applications, dependent: :destroy
   # if we want to call User.messages to show all messages
-  has_many :messages
+  has_many :messages, dependent: :destroy
 end

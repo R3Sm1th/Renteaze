@@ -10,18 +10,22 @@
 
 // To style the message itself
 .sender-style, .receiver-style {
+  position: relative;
+  display: inline-block;
   width: 70%;
   max-width: 400px;
-  border-radius: 4px;
-  padding: 8px;
   min-height: 80px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 // front end person can decide the color code for the chat box, I'll leave it as it is for now
 .sender-style {
-  background-color: lightcoral;
+  background-color: #C7F9CC;
+  border-radius: 20px 20px 2px 20px;
 }
 
 .receiver-style {
-  background-color: lightblue;
+  background-color: #38a3a59f;
+  border-radius: 2px 20px 20px 20px;
 }
