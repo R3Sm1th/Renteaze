@@ -1,7 +1,7 @@
 <div class="card-body" style="width: 18rem, margin-bottom: 50px">
   <ul class="list-group list-group-flush">
      <li class="list-group-item"><%= property_application.property.address %></p>
-     <li class="list-group-item"><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
+     <li class="list-group-item"><%= property_application.status.nil? ? "Pending" : property_application.status %></p>
      <li class="list-group-item"><%= link_to '', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5", "data-bs-toggle": "tooltip", title: "Review Application" %>
        <% if property_application.status == "accepted" %>
          <%= link_to "", finalize_property_application_path(property_application), class: "fa-solid fa-handshake-angle", "data-bs-toggle": "tooltip", title: "Finalize Application"%>
