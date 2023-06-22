@@ -24,19 +24,20 @@
       <div class="card-group">
         <% @b_ref.each do |b_ref| %>
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= b_ref.name %></h5>
+          <div class="card-body bankdocs">
+            <p class="card-title bankref"><%= b_ref.name %></p>
             <% if b_ref.issue_date.present? %>
-              <p class="card-text">Issued on :<%= b_ref.issue_date.strftime("%d/%m/%Y") %></p>
+              <p class="card-text bankref">Issued on :<%= b_ref.issue_date.strftime("%d/%m/%Y") %></p>
             <% end %>
-            <%= link_to "Download", download_pdf_bank_reference_path(b_ref) %>
+            <%= link_to "Download", download_pdf_bank_reference_path(b_ref), class: "btn btn-primary" %>
+
             <%# this one works, below for preview of image  %>
-            <div class="image-content">
+            <%# <div class="image-content">
               <%= cl_image_tag(b_ref.pdf.key, :transformation=>[{:width=>250, :crop=>"scale"},
                 {:fetch_format => :png}
                 ])%>
-            <div>
-              <button type="button" class="btn btn-primary"
+            <%# </div>  %>
+              <button type="button" class="btn btn-success"
                     data-toggle="modal" data-target="#exampleModal">
                     View
                 </button>
