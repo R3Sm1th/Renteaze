@@ -1,10 +1,13 @@
 <%= turbo_frame_tag :application_step do %>
   <%= render 'property_applications/steps', current_step: 1, property_application: @application %>
-  <p> Using the button and form below, please upload at least one form of personal identification this can be any of the following: Passport or Drivers Licence.  </p>
+  <br>
+  <p class="steptext"> Using the button and form below, please upload at least one form of personal identification this can be any of the following: Passport or Drivers Licence. </p>
+  <br>
   <%= link_to "Upload Personal Identification",
     new_property_application_identification_path(@application),
-    class: "btn btn-lg btn-primary btn-banner m-0",
+    class: "btn btn-lg btn-primary btn-banner m-0 mb-3",
     style: "width: 100%" %>
+  <br>
   <br>
   <% @ids.each do |id| %>
     <%= render 'identifications/id', id: id %>

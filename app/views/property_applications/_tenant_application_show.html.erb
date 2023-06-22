@@ -7,28 +7,27 @@
     <h1> Application References</h1>
     <p> Let's get to know you a little better, <%=@property_application.user.first_name %>.</p>
     <p> Please upload documentation requested for your property agent to progress your letting application.</p>
-    <a href="<%=property_property_applications_path(property) %>" class="fa-solid fa-house" style="width: 150px;"></a>
   <% end %>
 </div>
 <div class="asset-dashboard">
   <%# display grid or flex to reflect figma %>
   <div class="property-focus">
     <%# can this be full height 100%vh and sticky? %>
-    <div class="card" style="width: 100%">
-    <%= cl_image_tag @property.photo.key, width:300, class:"card-img-top"%>
-      <div class="card-body">
-        <h5 class="card-title"><%= @property.number %>, <%= @property.street %></h5>
-        <p class="card-text"><%= @property.town %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= @property_application.user.first_name %> <%= @property_application.user.surname %></li>
-        <li class="list-group-item">£<%= @property.price_per_month %> pcm</li>
-        <li class="list-group-item">Available on <%= @property.availability_date.strftime("%d/%m/%Y") %></li>
-        <li class="list-group-item"><%= @property.postcode %></li>
-        <li class="list-group-item">12 month(s) only</li>
-        <li class="list-group-item"><a href= "<%= my_applications_path %>", class="fa-solid fa-house"> Back to building</a></li>
-
-      </ul>
+    <div class="card" style="width: 100%; border-bottom-right-radius: 25px;">
+     <%= link_to my_applications_path do %>
+      <%= cl_image_tag @property.photo.key, width:300, class:"card-img-top"%>
+        <div class="card-body">
+          <h5 class="card-title"><%= @property.number %>, <%= @property.street %></h5>
+          <p class="card-text"><%= @property.town %></p>
+        </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><%= @property_application.user.first_name %> <%= @property_application.user.surname %></li>
+            <li class="list-group-item">£<%= @property.price_per_month %> pcm</li>
+            <li class="list-group-item">Available on <%= @property.availability_date.strftime("%d/%m/%Y") %></li>
+            <li class="list-group-item"><%= @property.postcode %></li>
+            <li class="list-group-item">12 month(s) only</li>
+          </ul>
+      <% end %>
     </div>
   </div>
 
@@ -36,8 +35,10 @@
   <div class="dashboard-content">
 
 
-    <h1>Step-by-Step Guide</h1>
+    <h1 class="h1step">Step-by-Step Guide</h1>
+    <br>
     <p>In order for your agent to process your application without delay you will need to upload at least one form of documentation in each of the following catagories. Once you have finished then proceed to select proceed at the bottom of the page which will flag application for your agents attention. </p>
+    <br>
     <div class="border p-2 ">
       <%= turbo_frame_tag :application_step, src: tenant_index_property_application_identifications_path(@property_application) do %>
         <p>Loading step....</p>
