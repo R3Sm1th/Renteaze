@@ -166,6 +166,7 @@ chatroom.save
 # #id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
 # id2.save!
 
+
 em1 = EmploymentDocument.new
 em1.company_name = "RealCompany Ltd - Proof of Employment"
 em1.date = DateTime.new(2023,05,5)
