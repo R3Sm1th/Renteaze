@@ -3,9 +3,9 @@
   <div class="banner-image">
     <div class="banner-container">
       <div class="box m-2 p-2" >
-        <p class= "center" style = "color: gray; font-size: 14px; text-align: left;">Confirmed move-in date: </p>
+        <p class= "center" style = "font-size: 14px; text-align: left;">Confirmed move-in date: </p>
         <p class= "center-description" style = "font-size:20px; text-align: left;"><strong><%= @property_application.move_in_date || ("TBD" if @property_application.move_in_date.nil?) %></strong></p>
-        <p id= "address-title" class= "center" style = "color: gray; font-size: 14px; text-align: left;">New address: </p>
+        <p id= "address-title" class= "center" style = "font-size: 14px; text-align: left;">New address: </p>
         <p class= "center-description" style = "font-size:20px ;text-align: left;"><strong><%= @property_application.property.address %></strong></p>
       </div>
     </div>
@@ -32,14 +32,19 @@
         <div class="col-12 col-lg-6">
           <%# flatpickr here for move-in date submission, apply confirm logic here for landlord %>
           <% if current_user.agent %>
-            <div>
-              <%= simple_form_for(@property_application, url: set_move_in_property_application_path(@property_application) ) do |f| %>
-              <%= f.error_notification %>
-              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-              <%= f.input :move_in_date, as: :string, input_html: { data: { controller: 'flatpickr' } }%>
-              <%= f.submit "Submit", class: "btn btn-primary"%>
-              <% end %>
+          <div class = "d-flex justify-content-between">
+            <div style = "width: 500px" >
+                <%= simple_form_for(@property_application, url: set_move_in_property_application_path(@property_application) ) do |f| %>
+                <%= f.error_notification %>
+                <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+              <div class = "flatpickr_submit">
+                <%= f.input :move_in_date, as: :string, input_html: { data: { controller: 'flatpickr' } }%>
+                <div style= "margin-bottom: 15px">
+                  <%= f.submit "Submit", class: "btn btn-primary"%>
+                </div>
+              </div>
+                <% end %>
+              </div>
             </div>
           <% end %>
 
@@ -52,7 +57,6 @@
               <%# passing api key here so we can use it in our JVscript controller %>
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
             </div>
-              <p>Your property location</p>
           </div>
     </div>
 

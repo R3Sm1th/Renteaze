@@ -124,6 +124,7 @@ application1.save!
 chatroom = Chatroom.new(property_application: application1)
 chatroom.save
 
+
 application2 = PropertyApplication.new
 application2.status = "Pending"
 application2.property = property1
