@@ -1,13 +1,12 @@
-
-<div class="card-header"style="background-color: rgb(247, 245, 245)" >
-  <div class="text-center my-3" style="background-color: white" >
+<div class="card-header"style="background-color: rgb(247, 245, 245), border-radius: 15px;" >
+   <div class="text-center my-3" style="background-color: white" >
     <div class="application-index-main col-10">
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><%= property_application.property.address %></p>
-        <li class="list-group-item"><%= property_application.status.empty? ? "Pending" : property_application.status %></p>
+        <li class="list-group-item"><%= property_application.status.empty? ? "Pending" : property_application.status.capitalize %></p>
       </ul>
     </div>
-  <div class="card-footer text-muted d-flex justify-content-center" ><%= link_to '', property_application_path(property_application), class:"fa-solid fa-magnifying-glass mx-5", "data-bs-toggle": "tooltip", title: "Review Application" %>
+  <div class="card-footer text-muted d-flex justify-content-center">
   <% if property_application.status == "accepted" %>
     <%= link_to "Finalize Application", finalize_property_application_path(property_application) %>
   <% end %>
