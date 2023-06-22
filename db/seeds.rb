@@ -123,8 +123,6 @@ application1.user = user2
 application1.save!
 chatroom = Chatroom.new(property_application: application1)
 chatroom.save
-@message = Message.new(message: "Let's get started!")
-@message.chatroom = @chatroom.id
 
 
 application2 = PropertyApplication.new
