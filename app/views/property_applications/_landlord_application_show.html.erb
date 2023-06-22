@@ -8,28 +8,29 @@
     <p> Let's get to know you a little better, <%=@property_application.user.first_name %>.</p>
     <p> Please upload documentation requested for your property agent to progress your letting application.</p>
   <% end %>
-  <a href="<%=property_property_applications_path(property) %>" class="btn btn-primary d-block mx-auto " style="width: 150px;">Back to building</a>
 </div>
 <div class="asset-dashboard">
   <%# display grid or flex to reflect figma %>
   <div class="property-focus" style="margin-right: 20px;">
     <%# can this be full height 100%vh and sticky? %>
-    <div class="card" style="width: 100%;">
-    <%= cl_image_tag @property.photo.key, width:300, class:"card-img-top"%>
-      <div class="card-body">
-        <h5 class="card-title"><%= @property.number %>, <%= @property.street %></h5>
-        <p class="card-text"><%= @property.town %></p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= @property_application.user.first_name %> <%= @property_application.user.surname %></li>
-        <li class="list-group-item">£<%= @property.price_per_month %> pcm</li>
-        <li class="list-group-item"> Available on : <%= @property.availability_date.strftime("%d/%m/%Y") %></li>
-        <li class="list-group-item"><%= @property.postcode %></li>
-        <li class="list-group-item">12 month(s) only</li>
-        <%# <li class="list-group-item">Back to Building<% a href= property_property_applications_path(property), class="btn btn-primary d-block mx-auto " style="width: 150px;"> "Back to building"</a> %>
-      </ul>
+    <div class="card" style="width: 388px;">
+      <%= link_to property_property_applications_path(property) do %>
+        <%=cl_image_tag @property.photo.key, width:300, class:"card-img-top"%>
+          <div class="card-body">
+            <h5 class="card-title"><%= @property.number %>, <%= @property.street %></h5>
+            <p class="card-text"><%= @property.town %></p>
+          </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><%= @property_application.user.first_name %> <%= @property_application.user.surname %></li>
+              <li class="list-group-item">£<%= @property.price_per_month %> pcm</li>
+              <li class="list-group-item"> Available on  <%= @property.availability_date.strftime("%d/%m/%Y") %></li>
+              <li class="list-group-item"><%= @property.postcode %></li>
+              <li class="list-group-item">12 month(s) only</li>
+              <%# <li class="list-group-item">Back to Building<% a href= property_property_applications_path(property), class="btn btn-primary d-block mx-auto " style="width: 150px;"> "Back to building"</a> %>
+            </ul>
+      <% end %>
     </div>
-  </div>
+</div>
 
 
   <div class="ll-dashboard-content d-flex" style="justify-content: flex-start;">
