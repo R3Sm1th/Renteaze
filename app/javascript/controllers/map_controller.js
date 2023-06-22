@@ -29,7 +29,7 @@ export default class extends Controller {
     // iterate through each Hash values of markers (incl. lng and lat)
     this.markersValue.forEach((marker) => {
       // add pop up for the markers here, which we can pass in as html
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+      const popup = new mapboxgl.Popup({ closeOnClick: false }).setHTML(marker.info_window_html)
       new mapboxgl.Marker()
         // look for dynamic marker value: lng and lat, rather than static, which is achieved by passing the keys as array in the static values
         .setLngLat([ marker.lng, marker.lat ])
