@@ -28,10 +28,11 @@
 
 .btn-banner:hover {
   color: rgb(0, 0, 0);
-  font-weight: bold;
+  font-weight: 500;
   // background-image: none;
   background-image: linear-gradient(98deg, #80ED99, #38A3A5 49%, #22577A);
   border-radius: 32px;
   // border: 1px solid black;
   transition: background-color .2s;
+  padding: 16px 42px;
 }
