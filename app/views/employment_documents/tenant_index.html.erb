@@ -1,10 +1,13 @@
 <%= turbo_frame_tag :application_step do %>
   <%= render 'property_applications/steps', current_step: 2, property_application: @property_application %>
-  <p> Using the button and form below, please upload proof of employment in the form of employers reference, payslip or P45 form </p>
+  <br>
+  <p class="steptext"> Using the button and form below, please upload proof of employment in the form of employers reference, payslip or P45 form </p>
+  <br>
   <%= link_to "Upload Employment Reference",
     new_property_application_employment_document_path(@property_application),
-    class: "btn btn-lg btn-primary btn-banner m-0",
+    class: "btn btn-lg btn-primary btn-banner m-0 mb-3",
     style: "width: 100%" %>
+  <br>
   <br>
   <% @employment_documents.each do |emp_doc| %>
     <%= render 'employment_documents/ide', id: emp_doc %>

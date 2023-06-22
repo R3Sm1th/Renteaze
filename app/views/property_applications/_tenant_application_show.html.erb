@@ -36,8 +36,10 @@
   <div class="dashboard-content">
 
 
-    <h1>Step-by-Step Guide</h1>
+    <h1 class="h1step">Step-by-Step Guide</h1>
+    <br>
     <p>In order for your agent to process your application without delay you will need to upload at least one form of documentation in each of the following catagories. Once you have finished then proceed to select proceed at the bottom of the page which will flag application for your agents attention. </p>
+    <br>
     <div class="border p-2 ">
       <%= turbo_frame_tag :application_step, src: tenant_index_property_application_identifications_path(@property_application) do %>
         <p>Loading step....</p>

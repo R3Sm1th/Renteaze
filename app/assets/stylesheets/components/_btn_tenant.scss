@@ -4,16 +4,20 @@
   border-radius: 50%;
   background-color: #22577A;
   text-align: center;
-  line-height: 43px;
+  line-height: 37px;
   color: white;
   text-decoration: none;
   border: 1px solid #000000;
   margin: auto;
+  // margin-top: 10px;
+  // margin-bottom: 10px;
+  // margin-left: 30px;
+  // margin-right: 30px;
 
 }
 
 .btn-tenant:hover {
-  background-color: #206c9f;
+  background-color: #57cc99;
   color: white;
   border: 1px solid #000000;
   margin: auto;
@@ -21,7 +25,7 @@
   height: 50px;
   border-radius: 50%;
   text-align: center;
-  line-height: 43px;
+  line-height: 37px;
   text-decoration: none;
 }
 
@@ -33,4 +37,23 @@
 .step-container {
 display: flex;
 justify-content: space-between !important;
+margin-left: 70px;
+margin-right: 70px;
+margin-top: 10px;
+margin-bottom: 10px;
+}
+
+.steptext {
+  color: grey;
+  margin-left: 10px;
+}
+
+.h1step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.p-2 {
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.5);
 }
