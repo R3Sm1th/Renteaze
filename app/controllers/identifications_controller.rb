@@ -30,8 +30,9 @@ class IdentificationsController < ApplicationController
 
     # respond_to do |format|
     if @identification.save!
-      redirect_to property_application_path(@property), notice: "Identification page was successfully updated."
+      # redirect_to property_application_path(@property), notice: "Identification page was successfully updated."
       # format.turbo_stream
+      redirect_to  tenant_index_property_application_identifications_path(@application), notice: "Identification document was successfully saved." # -> path to the show page for employment document
     else
       render :new, status: :unprocessable_entity
     end
