@@ -166,13 +166,22 @@ chatroom.save
 # #id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
 # id2.save!
 
-# em1 = EmploymentDocument.new
-# em1.company_name = "Le Wagon (Clement) batch manager's glowing recommendation"
-# em1.date = DateTime.now
-# em1.property_application = application1
-# #file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1686662615/8-01_sfulc5.jpg")
-# #id1.pdf.attach(io: file, filename: "8-01_sfulc5.jpg", content_type: "image/jpg")
-# em1.save!
+
+em1 = EmploymentDocument.new
+em1.company_name = "RealCompany Ltd - Proof of Employment"
+em1.date = DateTime.new(2023,05,5)
+em1.property_application = application1
+file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1687427662/Employment_Reference_-_DemoDay_icytw2.pdf")
+em1.pdf.attach(io: file, filename: "employmentreference.pdf", content_type: "pdf")
+em1.save!
+
+b1 = BankReference.new
+b1.name = "June 23 - Bank Statement"
+b1.issue_date = DateTime.new(2023,06,1)
+b1.property_application = application1
+file = URI.open("https://res.cloudinary.com/dbwm281qa/image/upload/v1687427602/Bank_Statement_zevwan.pdf")
+b1.pdf.attach(io: file, filename: "bankstatement.pdf", content_type: "pdf")
+b1.save!
 
 
 puts "Completed applications"
