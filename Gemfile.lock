@@ -285,7 +285,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootsnap
-  bootstrap
+  bootstrap (~> 5.1, >= 5.1.3)
   capybara
   cloudinary
   debug

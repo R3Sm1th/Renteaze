@@ -8,7 +8,7 @@ gem "rails", "~> 7.0.5"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-gem "bootstrap"
+gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem "cloudinary"
 
 # Use postgresql as the database for Active Record
