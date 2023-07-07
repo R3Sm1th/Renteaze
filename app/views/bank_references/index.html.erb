@@ -31,44 +31,29 @@
             <% end %>
             <%= link_to "Download", download_pdf_bank_reference_path(b_ref), class: "btn btn-primary" %>
 
-            <%# this one works, below for preview of image  %>
-            <%# <div class="image-content">
-              <%= cl_image_tag(b_ref.pdf.key, :transformation=>[{:width=>250, :crop=>"scale"},
-                {:fetch_format => :png}
-                ])%>
-            <%# </div>  %>
-              <button type="button" class="btn btn-success"
-                    data-toggle="modal" data-target="#exampleModal">
-                    View
-                </button>
-                <!--Bootstrap modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1"
-                    role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <!-- Modal heading -->
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    <% b_ref.name %>
-                                </h5>
-                                <button type="button" class="close"
-                                    data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">
-                                        X
-                                    </span>
-                                </button>
-                            </div>
-                            <!-- Modal body with image -->
-                            <div class="modal-body">
-                                <%= cl_image_tag(b_ref.pdf.key, :transformation=>[{:width=>500, :crop=>"scale"},
-                            {:fetch_format => :png}
-                            ])%>
-                            </div>
-                        </div>
-                    </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Review Bank Reference
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Banking Reference</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <%# THIS NEEDS TO BE WORKED ON NEED CL URL %>
+                    <embed src="<%= cloudinary_url(b_ref.pdf.key) %>" width="100%" style="height: calc(100vh - 150px);" type="application/pdf">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
                 </div>
               </div>
+            </div>
+
 
               <script src=
               "https://code.jquery.com/jquery-3.3.1.slim.min.js"

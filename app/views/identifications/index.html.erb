@@ -27,8 +27,8 @@
       <div class="card-group">
         <% @id.each do |id| %>
         <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= id.name %></h5>
+          <div class="card-body bankdocs">
+            <h5 class="card-title bankref"><%= id.name %></h5>
             <% if id.issue_date.present? %>
               <p class="card-text">Issued on :<%= id.issue_date.strftime("%d/%m/%Y") %></p>
             <% end %>
@@ -43,39 +43,28 @@
                 {:fetch_format => :png}
                 ])%>
             </div>
-            <div>
-              <button type="button" class="btn btn-primary"
-                    data-toggle="modal" data-target="#exampleModal">
-                    View
-                </button>
-                <!--Bootstrap modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1"
-                    role="dialog" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <!-- Modal heading -->
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">
-                                    <% id.company_name %>
-                                </h5>
-                                <button type="button" class="close"
-                                    data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">
-                                        X
-                                    </span>
-                                </button>
-                            </div>
-                            <!-- Modal body with image -->
-                            <div class="modal-body">
-                                <%= cl_image_tag(id.pdf.key, :transformation=>[{:width=>500, :crop=>"scale"},
-                            {:fetch_format => :png}
-                            ])%>
-                            </div>
-                        </div>
-                    </div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Review ID
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Identification Document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <%# THIS NEEDS TO BE WORKED ON NEED CL URL %>
+                    <embed src="<%= cloudinary_url(id.pdf.key) %>" width="100%" style="height: calc(100vh - 150px);" type="application/pdf">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
                 </div>
               </div>
+            </div>
 
               <script src=
               "https://code.jquery.com/jquery-3.3.1.slim.min.js"

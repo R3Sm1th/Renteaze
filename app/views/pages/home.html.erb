@@ -1,14 +1,77 @@
-<br>
-<br>
-<%= render "pages/banner" %>
-<br>
-<br>
-<br>
-<%= render "pages/firstcard" %>
-<%= render "pages/secondcard" %>
-<%#= render "pages/thirdcard" %>
-<br>
-<br>
-<br>
+<div class="hero-container">
+  <div class="content">
+    <div>
+      <h1> <strong>Your digital platform for renting property.</strong> </h1>
+      <h4> Remove all the hassle of paperwork.</h4>
+      <p> Renteaze is your easy to use, free, cloud-based property management software. Key features like vetting, documentation, progress monitoring and much more on your fingertips.</p>
+    </div>
+    <div class="btn-wrap d-flex justify-content-between align-items-center rounded-5">
+    <%# <% user_is_landlord = current_user == @property.user %>
+      <% if current_user && current_user.agent%>
+      <%= link_to "Agent Dashboard", properties_path, class: "btn btn-lg btn-primary btn-banner m-0"%>
+      <% elsif current_user && current_user.tenant%>
+      <%= link_to "Tenant Dashboard",  my_applications_path, class: "btn btn-lg btn-primary btn-banner m-0" %>
+      <% else%>
+      <%= link_to "Sign In", user_session_path, class: "btn btn-lg btn-primary btn-banner m-0"  %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="home-container">
+<%# section 2 %>
+  <h3> How it works? </h3>
+  <div class="showcontainer">
+    <div class="showcontent">
+      <div class="showitem">
+        <div>
+          <h5 class="card-title">All in one place</h5>
+          <p class="card-text">No need to send multiple emails with attachments</p>
+        </div>
+        <img src="..." class="" alt="...">
+      </div>
+      <div class="showitem">
+        <div>
+          <h5 class="card-title">All in one place</h5>
+          <p class="card-text">No need to send multiple emails with attachments</p>
+        </div>
+        <img src="..." class="" alt="...">
+      </div>
+      <div class="showitem">
+        <div>
+          <h5 class="card-title">All in one place</h5>
+          <p class="card-text">No need to send multiple emails with attachments</p>
+        </div>
+        <img src="..." class="" alt="...">
+      </div>
+    </div>
+    <div class="showcase">
+      <p>testing</p>
+    </div>
+  </div>
+</div>
+<%# section 3 %>
+<div class="home-container">
+  <h3> Software that streamlines the progress. </h3>
+  <p> We make sure that the process is clearly outlined with next steps so there is no confusion. As a result we tenant processing is 27% quicker than standard industry practice.</p>
+  <div>
+    <p> Renteaze is rated 4.8 out of 5 by more than 500 users.</p>
+    <i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i>
+  </div>
+</div>
+
+<%# section 4 %>
+<div class="home-container">
+  <h3> Try it out! </h3>
+  <p> Renteaze has been created purposely to take the hassle out of renting your property. More than 3,000 landlords use manage their properties with us and report and overwhelming positive feedback. Why not give it a try today? </p>
+  <div>
+    <%= link_to "Sign Up", new_user_session_path, class:"btn btn-primary" %>
+  </div>
+  <p> No commitment </p>
+  <p> Start for free </p>
+  <p> Get your rental agreement up and running straight away </p>
+</div>
+
+
 <%= render "pages/buttontrial" %>
 <%= render "pages/footer" %>
