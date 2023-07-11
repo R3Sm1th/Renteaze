@@ -4,7 +4,7 @@
 }
 
 .hero-container {
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +18,14 @@
     width: 80%;
     height: fit-content;
   }
-  h1,
+  h1 {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 2.5%;
+  }
   h4 {
+    color: black;
     text-align: center;
     padding-bottom: 2.5%;
   }
@@ -32,9 +38,8 @@
 
 
 .about_section .row {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .about_section .img-box img {
@@ -86,11 +91,16 @@
   padding-bottom: 10%;
 }
 
+.process_section .row {
+  margin-bottom: 5%;
+  justify-content: space-evenly;
+}
+
 .process_section .box {
-  margin-top: 45px;
   width: auto;
-  min-height: 100%;
+  min-height: 90%;
   padding: 5%;
+  margin-bottom: 2.5%;
 }
 
 .process_section .box .img-box {
@@ -103,11 +113,19 @@
 
 .process_section .box .detail-box {
   margin-top: 15px;
+  vertical-align: middle;
 }
 
 .process_section .box .detail-box h4 {
   font-weight: bold;
+  vertical-align: middle;
 }
+
+.process_section .box .detail-box p {
+  color: #999;
+  vertical-align: middle;
+}
+
 
 .process_section .box .detail-box a {
   text-transform: uppercase;
@@ -149,7 +167,9 @@
 }
 
 .team_section .box .img-box img {
-  width: 100%;
+  width: 175px;
+  height: 175px;
+  object-fit: cover;
 }
 
 .team_section .box .detail-box {
@@ -162,7 +182,7 @@
 }
 
 .team_section .box .detail-box h6 {
-  color: #80ED99;
+  color: #999;
 }
 
 .team_section .box .detail-box .social_box {
@@ -198,18 +218,11 @@
 
 .client_section .box {
   margin: 15px 45px;
-  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
   padding: 25px;
 }
 
 .client_section .box .client_info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .client_section .box .client_info .client_name h5 {
@@ -241,8 +254,6 @@
   font-size: 28px;
   font-weight: bold;
   top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
 }
 
 .client_section .carousel-control-prev {
