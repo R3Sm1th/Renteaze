@@ -121,6 +121,17 @@ class PropertyApplicationsController < ApplicationController
     end
   end
 
+  def lease
+    @property_application = PropertyApplication.find(params[:id])
+    @property = @property_application.property
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "file_name"   # Excluding ".pdf" extension.
+      end
+    end
+  end
+
   def set_move_in
     @property_application = PropertyApplication.find(params[:id])
     @property = @property_application.property

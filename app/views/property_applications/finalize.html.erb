@@ -13,9 +13,21 @@
 </div>
 
 <% if current_user.tenant? %>
-  <p style="text-align: center"> Almost there <%=current_user.first_name %> , confirm your move-in date with your landlord!</p>
+  <p style="text-align: center"> Almost there <%=current_user.first_name %> , please review your lease below and confirm your move-in date with your landlord!</p>
 <% else %>
   <p style="text-align: center"> Almost there, <%=current_user.first_name %>, confirm your move-in date with your tenant!</p>
+<% end %>
+
+<% if current_user.tenant? %>
+  <div class="lease col-12 col-lg-12">
+    <div class="lease-card">
+      <p style="text-align: center"> Please review your lease prior to signing in the agents office.</p>
+      <!-- Button trigger modal -->
+      <div>
+        <%= link_to "Review Lease",  lease_pdf_path(), class: "btn btn-lg btn-primary btn-banner m-0 mb-5 centered-content", style: "width: 100%", target: "_blank"  %>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 <%# Responsive design, compatible for mobile and desktop %>
@@ -23,11 +35,11 @@
   <div class="row">
 
     <%# chatbox section on the left hand side%>
-    <div class = "d-flex justify-content-between">
+    <div class = "d-flex">
       <div class="card-map col-12 col-lg-6">
         <div style= "margin-left: 20px; margin-top: 20px"><p><b>Chatbox</b></p></div>
-            <%= render "property_application_finalize/chatbox", property_application: @property_application, message: @message %>
-          </div>
+          <%= render "property_application_finalize/chatbox", property_application: @property_application, message: @message %>
+        </div>
         <%# flatpickr + geomap section on the right hand side %>
         <div class="col-12 col-lg-6">
           <%# flatpickr here for move-in date submission, apply confirm logic here for landlord %>

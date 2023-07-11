@@ -10,6 +10,8 @@ gem "rails", "~> 7.0.5"
 gem "sprockets-rails"
 gem 'bootstrap', '~> 5.1', '>= 5.1.3'
 gem "cloudinary"
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"

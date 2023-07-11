@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       patch :set_move_in
     end
   end
+  get '/property_applications/:id/lease.pdf', to: 'property_applications#lease', format: false, as: 'lease_pdf'
   resources :identifications, only: [:show, :edit, :update, :destroy] do
     member do
       get :download_pdf

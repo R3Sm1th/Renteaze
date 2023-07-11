@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+  </head>
+  <body onload='number_pages'>
+    <div id="header">
+      <%= wicked_pdf_image_tag 'mysite.jpg' %>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+      <h3>Property Lease Agreement</h3>
+
+      <p>This Property Lease Agreement (the "Agreement") is made and entered into on this date <%= Date.today %>(the "Effective Date"), by and between the lessor, <%= @property.user.first_name %>, with an address at [Lessor's Address] (the "Lessor"), and the lessee, <%= @property_application.user.first_name %>, with an address at [Lessee's Address] (the "Lessee").</p>
+
+      <h3>1. Property Description:</h3>
+      <p>The Lessor hereby leases to the Lessee the following property (the "Property"):</p>
+      <ul>
+        <li><strong>Address:</strong> <%= @property.address %></li>
+      </ul>
+
+      <h3>2. Term:</h3>
+      <p>The lease term shall commence on the Effective Date and continue for a period of 12 months, unless terminated earlier as per the terms of this Agreement.</p>
+
+      <h3>3. Rent and Payment:</h3>
+      <p>The Lessee agrees to pay a monthly rent of <%= @property.price_per_month %> for the Property. Rent shall be due on the [Due Date] of each month. Payments should be made in (£) pound sterling to the Lessor's designated bank account or by any other mutually agreed method.</p>
+
+      <h3>4. Security Deposit:</h3>
+      <p>The Lessee shall provide a security deposit of £1,000 as security for the performance of all obligations under this Agreement. The security deposit will be returned to the Lessee within 14 days after the termination of this Agreement, subject to deductions for any unpaid rent or damages caused to the Property.</p>
+
+      <h3>5. Use of Property:</h3>
+      <p>The Lessee shall use the Property solely for [Intended Use]. The Lessee shall not engage in any unlawful activities or use the Property for any purpose other than the intended use without the prior written consent of the Lessor.</p>
+
+      <h3>6. Maintenance and Repairs:</h3>
+      <p>The Lessee shall maintain the Property in good and clean condition, making any necessary repairs caused by their negligence or misuse. The Lessor shall be responsible for major repairs and structural maintenance, unless damage is caused by the Lessee's actions.</p>
+
+      <h3>7. Termination:</h3>
+      <p>Either party may terminate this Agreement with written notice of 21 days. Upon termination, the Lessee shall vacate the Property and return it in the same condition as received, except for reasonable wear and tear.</p>
+
+      <h3>8. Governing Law:</h3>
+      <p>This Agreement shall be governed by and construed in accordance with the laws of [Jurisdiction]. Any disputes arising under this Agreement shall be resolved through arbitration in [Arbitration Venue] in accordance with the rules of [Arbitration Rules].</p>
+
+      <h3>9. Entire Agreement:</h3>
+      <p>This Agreement constitutes the entire agreement between the Lessor and the Lessee, superseding any prior agreements or understandings, whether written or oral, relating to the Property.</p>
+
+      <h3>10. Severability:</h3>
+      <p>If any provision of this Agreement is held invalid or unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+      <p>Both parties hereby execute this Property Lease Agreement as of the Effective Date.</p>
+
+      <p>_____________________________<br>
+      <%= @property.user.first_name %><br>
+      Lessor</p>
+
+      <p>_____________________________<br>
+      <%= @property_application.user.first_name %><br>
+      Lessee</p>
+  </body>
+</html>
