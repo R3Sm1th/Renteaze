@@ -46,9 +46,19 @@
   max-width: 100%;
 }
 
+.detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .about_section .detail-box p {
   color: #999;
   margin-top: 15px;
+}
+
+.about_section .detail-box {
+  vertical-align: middle;
 }
 
 .about_section .detail-box a {
@@ -72,7 +82,7 @@
 }
 
 .process_section .heading_container h2 span {
-  color: #80ED99;
+  color: #38A3A5;
 }
 .process_section .side_img {
   position: absolute;
@@ -98,9 +108,12 @@
 
 .process_section .box {
   width: auto;
-  min-height: 90%;
+  min-height: 250px;
   padding: 5%;
   margin-bottom: 2.5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .process_section .box .img-box {
@@ -129,14 +142,14 @@
 
 .process_section .box .detail-box a {
   text-transform: uppercase;
-  color: #80ED99;
+  color: #C7F9CC;
 }
 .process_section .box .detail-box a:hover {
   color: #252525;
 }
 
 .team_section {
-  background-color: #80ED99;
+  background-color: #C7F9CC;
   padding: 90px;
 }
 
@@ -227,7 +240,7 @@
 
 .client_section .box .client_info .client_name h5 {
   font-weight: 600;
-  color: #80ED99;
+  color: #38A3A5;
 }
 
 .client_section .box .client_info .client_name h6 {
@@ -249,7 +262,7 @@
 .client_section .carousel-control-next {
   width: 45px;
   height: 125px;
-  background-color: #80ED99;
+  background-color: #C7F9CC;
   opacity: 1;
   font-size: 28px;
   font-weight: bold;
@@ -305,68 +318,4 @@
     padding: 10%;
     margin-bottom: 5%;
   }
-}
-
-// Responsive layout
-@media screen and (max-width: 800px) {
-  .hero-mobile img {
-    display: contents;
-    width: 150px;
-  }
-
-  .hero-img img {
-    display: none;
-  }
-
-  .hero-container {
-    padding: 15px;
-
-    h1,
-    h4 {
-      text-align: center;
-    }
-  }
-
-  .contact {
-    justify-content: center;
-  }
-
-  .home-container {
-    padding: 25px;
-
-    h1 {
-      text-align: center;
-    }
-    p {
-      text-align: justify;
-    }
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .hero-mobile img {
-    display: contents;
-    width: 150px;
-  }
-
-  .hero-container {
-    padding: 15px;
-
-    h1 {
-      text-align: center;
-      padding-bottom: 7.5%;
-    }
-    h4 {
-      text-align: center;
-    }
-  }
-
-  .contact {
-    justify-content: center;
-  }
-
-  .home-container {
-    padding: 25px;
-  }
-
 }
