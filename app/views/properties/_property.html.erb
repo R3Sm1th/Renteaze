@@ -1,6 +1,6 @@
 
 <div id="<%= dom_id property %>" class="col">
-    <div class="card" style="width: 18rem; height: 500px">
+    <div class="card d-flex justify-content-center" style="width: 18rem; height: 500px">
   <%= link_to property_property_applications_path(property) do %>
       <%= cl_image_tag property.photo.key, width:300, class:"card-img-top"%>
       <div class="card-body">

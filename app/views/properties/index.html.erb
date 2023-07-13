@@ -19,7 +19,7 @@
 
 
   <div class="dashboard  container d-flex justify-content-center my-5" >
-    <div class="card-group">
+    <div class="card-group d-flex justify-content-left">
       <% @properties.each do |property| %>
           <%= render property %>
           <% property_applications = property.property_applications %>

@@ -6,7 +6,7 @@
     <%# <%= f.input :identification %>
     <%# <%= f.input :bank_references %>
     <%# <%= f.input :employment %>
-    <%= f.association :user, collection: User.all %>
+    <%= f.association :user, collection: User.all, label_method: :first_name %>
   </div>
 
   <div class="form-actions">
