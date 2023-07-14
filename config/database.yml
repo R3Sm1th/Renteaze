@@ -73,8 +73,8 @@ test:
 # the values provided in this file. Alternatively, you can specify a connection
 # URL environment variable explicitly:
 #
-#   production:
-#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+# production:
+#   url: <%= "postgres://dbfvngaimlhdrv:75a9da6972981eacfcec664f8f8515a53202357592f7d9771dc7a2b60b1023c3@ec2-52-215-209-64.eu-west-1.compute.amazonaws.com:5432/d81cfjcl1m3kvr" %>
 #
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
